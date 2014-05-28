@@ -9,7 +9,7 @@ angular.module('GO.controllers', ['GO'])
 				.controller('LoginController', ['$scope', '$http', '$state', 'utils', 'alert', function($scope, $http, $state, utils, alert) {
 						$scope.master = $scope.user = {username: '', password: ''};
 
-						$scope.config = {url: 'https://intermesh.group-office.com'};// 'http://localhost/groupoffice-6.0/www/'};
+						$scope.config = {url: 'http://localhost/groupoffice/'};
 
 						$scope.login = function(user) {
 

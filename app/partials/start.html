@@ -1,0 +1,12 @@
+
+<div class="container">
+	<a style="float:right; "class="btn btn-default" ng-click="logout()">Logout</a>
+
+	<h1>Apps:</h1>
+
+	<ul>
+		<li ng-repeat="app in apps"><a ui-sref="{{app.id}}">{{ app.title}}</a></li>
+
+	</ul>
+
+</div>

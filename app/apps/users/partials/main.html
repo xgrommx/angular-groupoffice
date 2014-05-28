@@ -1,0 +1,19 @@
+<div ng-show="hideTable()">
+	<h1>User management</h1>
+	<table ng-table="tableParams" class="table ng-table-responsive">
+		<tr ng-repeat="user in $data" infinite-scroll="loadMore()" infinite-scroll-distance="2">
+			<td data-title="'Name'">
+				<a ui-sref="users.detail({userId: user.id})">{{user.username}}</a>
+			</td>
+			<td data-title="'E-mail'">
+				{{user.email}}
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div ui-view></div>
+
+
+
+

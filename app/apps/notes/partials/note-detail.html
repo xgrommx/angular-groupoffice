@@ -1,6 +1,6 @@
 
 <div class="detail">
-	<h1>Editing note {{model.name}}</h1>
+	<h1><span ng-if="!model.id">Creating</span><span ng-if="model.id>0">Editing</span> note {{model.name}}</h1>
 
 	<form ng-submit="save(model)">	
 

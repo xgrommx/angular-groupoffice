@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" ng-app="GO">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="utf-8">
   <title>Angular GroupOffice</title>
   
@@ -14,26 +15,26 @@
 
 	<link rel="stylesheet" href="css/app.css"/>
 </head>
-<body>
+<body ng-controller="BodyController">
 	
-	<div class="main-containter" ng-controller="ContainerController">
 		
 		
 		
 		
-		<div class="go-loadmask" ng-show="hasPendingRequests()">
-			<div class="go-loadmask-screen"></div>
-			<div class="go-loadmask-msg"><i class="fa fa-spinner go-rotate"></i> Loading...</div>
-		</div>
-		
-			
-			<div class="go-alerts">
-				<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{ alert.msg }}</alert>
-			</div>
+<div class="go-loadmask" ng-show="hasPendingRequests()">
+	<div class="go-loadmask-screen"></div>
+	<div class="go-loadmask-msg"><i class="fa fa-spinner go-rotate"></i> Loading...</div>
+</div>
 
-			<div ui-view></div>
+	
+<div class="container">
+
+	<div class="go-alerts">
+		<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{ alert.msg }}</alert>
 	</div>
 
+	<div ui-view></div>
+</div>
 
 
   <!-- In production use:
@@ -46,6 +47,10 @@
 	
 	<script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="../bower_components/angular-ui-utils/ui-utils.min.js"></script>
+	
+	<script src="../bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
+	
+	<script src="../bower_components/angular-touch/angular-touch.min.js"></script>
 
 	
 

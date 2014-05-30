@@ -1,9 +1,8 @@
 /* app css stylesheet */
 
 body{
-	
+	position:relative;
 }
-
 .container.go-nav{
 	padding-top: 70px;
 }
@@ -119,4 +118,9 @@ input.ng-valid.ng-dirty {
 
 textarea.form-control{
 	height:200px;
+}
+
+
+.navbar-collapse.in .navbar-form, .navbar-collapse.collapsing .navbar-form{
+	margin: 0;
 }

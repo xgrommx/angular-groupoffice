@@ -3,62 +3,47 @@
 /* Controllers */
 
 angular.module('GO.controllers')
-				.controller('NotesController', ['$scope', '$stateParams','$state', '$http', 'utils', 'ngTableParams', function($scope, $stateParams, $state, $http, utils, ngTableParams) {
+
+				.controller('NotesController', ['$scope','$state', 'listFunctions', function($scope, $state, listFunctions) {
 
 						$scope.hideTable = function(){
 							var isActive = $state.is('notes');	
 							return isActive;
 						};
-					
-				
-						$scope.tableParams = new ngTableParams({
-							page: 1, // show first page
-							count: 10 // count per page
-						}, {
-							total: 0, //data.length, // length of data
-							getData: function($defer, params) {
-
-
-								$http.get(utils.url("notes/note/store"), {
-									params: {
-										query: $scope.searchModel.query,
-										limit: params.count(),
-										start: (params.page() - 1) * params.count()
-									}
-								})
-								.success(function(data) {
-									// update table params
-									params.total(data.total);
-									// set new data
-									$defer.resolve(data.results);
-								});
-
-
-							}
-						});
 						
-						$scope.searchModel = {
-							query:''
-						};
 						
-						$scope.search = function($event){
-							
-							if($event.keyCode===13){
-								$scope.tableParams.reload();
-							}
-						};
-
+						listFunctions(
+										$scope, 
+										'notes/note/store',
+										{
+											excerpt:true,
+											sort:'mtime',
+											dir:'DESC'
+										});
 
 
 					}]).
-				controller('NoteDetailController', ['crudFunctions','$scope', '$stateParams', '$http', '$state', 'utils', 'alert', function(crudFunctions,$scope, $stateParams, $http, $state, utils, alert) {
-						
-						
+				controller('NoteDetailController', ['crudFunctions','$scope', '$stateParams', function(crudFunctions,$scope, $stateParams) {
+												
 						crudFunctions($scope, 'note', 'notes/note');		
 						
 						$scope.noteId = $stateParams.noteId;
 						$scope.load($scope.noteId);						
 
+					}]).
+								
+				controller('CategoryController', ['listFunctions','$scope', '$http', 'utils', function(listFunctions,$scope,$http,utils) {
+												
+						listFunctions($scope, 'notes/category/store');
+						
+						$scope.saveCategory = function(category){
+							console.log(category);
+							
+							$http.post(utils.url("notes/category/enable"), {enabled: category.checked})
+												.success(function(result) {													
+												});
+						};
+						
 					}]);
 
 

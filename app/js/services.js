@@ -38,15 +38,17 @@ angular.module('GO.services', []).
 					}
 				]).
 				factory('utils', [function() {
+						
+						//Use sessionStorage from browser so it survives browser reloads						
 						return {
-							baseUrl: '',
-							securityToken: '',
+							baseUrl: sessionStorage.baseUrl,
+							securityToken: sessionStorage.securityToken,
 							
 							setBaseUrl : function(url){
-								this.baseUrl = url.replace(/^\s+|\s+$/g, '')+'/';
+								this.baseUrl = sessionStorage.baseUrl = url.replace(/^\s+|\s+$/g, '')+'/';
 							},
 							setSecurityToken : function(token){
-								this.securityToken = token;
+								this.securityToken = sessionStorage.securityToken = token;
 							},
 							url: function(relativeUrl, params) {
 								if (!relativeUrl && !params)
@@ -82,6 +84,56 @@ angular.module('GO.services', []).
 
 						return httpRequestTracker;
 					}])
+				
+				.factory('listFunctions', ['$http','utils',function($http, utils){
+					return function ($scope, url, loadParams){
+						
+						loadParams = loadParams || {};
+						
+						
+						$scope.listItems=[];
+						
+						
+						$scope.reload = function(){
+							$scope.listItems=[];
+							$scope.loadMore();
+						};					
+						
+						$scope.loadMore = function(){
+							
+							
+							var params = {
+										query: $scope.searchModel.query,
+										limit: 20,
+										start: $scope.listItems.length
+									};
+									
+							angular.extend(params, loadParams);
+							
+							
+							$http.get(utils.url(url), {
+									params: params
+								})
+								.success(function(data) {
+									for(var i = 0; i<data.results.length;i++){
+										$scope.listItems.push(data.results[i]);
+									};
+								});
+						};						
+			
+						
+						$scope.searchModel = {
+							query:''
+						};
+						
+						$scope.search = function($event){							
+							if($event.keyCode===13){
+								$scope.reload();
+							}
+						};
+					};				
+				}])
+				
 				.factory('crudFunctions', ['$stateParams', '$http', '$state', 'utils', 'alert', function($stateParams, $http, $state, utils, alert) {
 
 
@@ -99,13 +151,14 @@ angular.module('GO.services', []).
 													if (!result.success) {
 														alert.set('warning', result.feedback);
 													} else {
-														$scope.tableParams.reload();
+														$scope.reload();
 														$state.go('^');
 													}
 												});
 
 								}
-							};
+							};							
+							
 
 							$scope.save = function(data) {
 
@@ -126,7 +179,7 @@ angular.module('GO.services', []).
 															alert.set('warning', result.errors[i]);
 														}
 													} else {
-														$scope.tableParams.reload();
+														$scope.reload();
 														$state.go('^');
 													}
 												});

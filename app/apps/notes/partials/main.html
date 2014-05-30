@@ -1,27 +1,21 @@
-<div class="container ">
 
-	<div ng-show="hideTable()">
+
+	<div ng-show="hideTable()" style="padding-top:70px;">
 		<!-- Fixed navbar -->
-		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavBarCtrl">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<button type="button" class="navbar-toggle" ng-click="toggle()">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Notes</a>
+					<span class="navbar-brand">Notes</span>
 				</div>
-				<div class="navbar-collapse collapse">
+				<div class="navbar-collapse collapse" collapse="isCollapsed">
 					<ul class="nav navbar-nav">
-						<li>
-							<a ui-sref="notes.detail()">
-								<span class="glyphicon glyphicon-plus"></span>
-								Add
-							</a>
-
-						</li>
+						
 						<li>
 							<form class="navbar-form" role="search">
 								<div class="input-group">
@@ -31,19 +25,47 @@
 										<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 									</div>
 								</div>
-							</form>
-							
+							</form>							
 						</li>
 
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#start">Start page</a></li>
+						<li>
+							<a ui-sref="notes.detail()">
+								<span class="glyphicon glyphicon-plus"></span>
+							</a>
+						</li>
+						<li class="dropdown">
+							
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a ui-sref="categories">Enabled categories</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Navigation</li>                  
+                  <li><a href="#start">Start page</a></li>
+                </ul>
+              </li>
+						
+						
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
 		</div>
+		
+		
+		<div class="list-group" infinite-scroll="loadMore()">
+			<a ui-sref="notes.detail({noteId: note.id})" class="list-group-item" ng-repeat="note in listItems">				
+				<span style="float:right;color:#777777;font-style:italic">{{note.mtime * 1000| date:'medium'}}</span>
+				<h4 class="list-group-item-heading">{{note.name}}</h4>
+				
+				<p class="list-group-item-text">
+					<i ng-if="note.encrypted" class="fa fa-lock" style="margin-right:10px;"></i>{{note.excerpt}}
+				</p>
+			</a>
+		</div>
 
-		<table ng-table="tableParams" class="table" style="margin-top:70px;">
+
+<!--		<table ng-table="tableParams" class="table" style="margin-top:70px;">
 			<tr ng-repeat="note in $data" infinite-scroll="loadMore()" infinite-scroll-distance="2">
 				<td data-title="'Name'">
 					<a ui-sref="notes.detail({noteId: note.id})">{{note.name}}</a>
@@ -52,12 +74,11 @@
 					{{note.mtime * 1000| date:'medium'}}
 				</td>
 			</tr>
-		</table>
+		</table>-->
 	</div>
 
 	<div ui-view></div>
 
-</div>
 
 
 

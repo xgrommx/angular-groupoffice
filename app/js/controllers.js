@@ -64,13 +64,22 @@ angular.module('GO.controllers', ['GO'])
 
 
 					}])
-				.controller('ContainerController', ['$scope', 'httpRequestTracker', function($scope, httpRequestTracker) {
+				.controller('BodyController', ['$scope', 'httpRequestTracker', function($scope, httpRequestTracker) {
 
 						$scope.hasPendingRequests = function() {
 							return httpRequestTracker.hasPendingRequests();
 						};
 
 
-					}]);
+					}])
+				.controller('NavBarCtrl', ['$scope', function($scope){
+						
+							$scope.isCollapsed = true;
+							
+							$scope.toggle = function(){
+								console.log($scope.isCollapsed); 
+								$scope.isCollapsed = !$scope.isCollapsed;
+							}
+						}]);
 
 

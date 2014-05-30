@@ -18,8 +18,13 @@ angular.module('GO').
 											controller: 'NotesController'
 										})
 										.state('notes.detail', {
-											url: "/detail/{noteId:[0-9]*}",
+											url: "/note/{noteId:[0-9]*}",
 											templateUrl: 'apps/notes/partials/note-detail.html',
 											controller: 'NoteDetailController'
+										})
+										.state('categories', {
+											url: "/apps/notes/categories",
+											templateUrl: 'apps/notes/partials/categories.html',
+											controller: 'CategoryController'
 										});
 					}]);

@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h1>Enabled note categories</h1>
+	
+</div>
+
+
+<form>
+	
+<ul class="list-group" infinite-scroll="loadMore()">
+    <li class="list-group-item" ng-repeat="category in listItems">
+        <label><input type="checkbox" ng-model="category.checked" ng-change="saveCategory(category);"> {{category.name}}</label>
+    </li>  
+</ul>
+</form>

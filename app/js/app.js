@@ -7,10 +7,12 @@ var GO = angular.module('GO', [
 	
 	
 	//3rd party modules
-	'ngTable',
+	//'ngTable',
 	'ui.bootstrap',
 	'ui.router',
 	'ui.utils',
+	'infinite-scroll',
+	'ngTouch',
 	
 	
 	

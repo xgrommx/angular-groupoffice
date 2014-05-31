@@ -4,22 +4,20 @@
 
 angular.module('GO.controllers')
 
-				.controller('NotesController', ['$scope','$state', 'listFunctions', function($scope, $state, listFunctions) {
+				.controller('NotesController', ['$scope','$state', 'RemoteList', function($scope, $state, RemoteList) {
 
 						$scope.hideTable = function(){
 							var isActive = $state.is('notes');	
 							return isActive;
 						};
 						
-						
-						listFunctions(
-										$scope, 
-										'notes/note/store',
+						$scope.remoteList = new RemoteList('notes/note/store',
 										{
 											excerpt:true,
 											sort:'mtime',
 											dir:'DESC'
 										});
+						
 
 
 					}]).
@@ -37,9 +35,8 @@ angular.module('GO.controllers')
 						listFunctions($scope, 'notes/category/store');
 						
 						$scope.saveCategory = function(category){
-							console.log(category);
 							
-							$http.post(utils.url("notes/category/enable"), {enabled: category.checked})
+							$http.get(utils.url("notes/category/toggle", {id: category.id, enabled: category.checked ? 1 : 0}))
 												.success(function(result) {													
 												});
 						};

@@ -38,16 +38,15 @@ angular.module('GO.services', []).
 					}
 				]).
 				factory('utils', [function() {
-						
+
 						//Use sessionStorage from browser so it survives browser reloads						
 						return {
 							baseUrl: sessionStorage.baseUrl,
 							securityToken: sessionStorage.securityToken,
-							
-							setBaseUrl : function(url){
-								this.baseUrl = sessionStorage.baseUrl = url.replace(/^\s+|\s+$/g, '')+'/';
+							setBaseUrl: function(url) {
+								this.baseUrl = sessionStorage.baseUrl = url.replace(/^\s+|\s+$/g, '') + '/';
 							},
-							setSecurityToken : function(token){
+							setSecurityToken: function(token) {
 								this.securityToken = sessionStorage.securityToken = token;
 							},
 							url: function(relativeUrl, params) {
@@ -84,85 +83,114 @@ angular.module('GO.services', []).
 
 						return httpRequestTracker;
 					}])
-				
-				.factory('listFunctions', ['$http','utils',function($http, utils){
-					return function ($scope, url, loadParams){
-						
-						loadParams = loadParams || {};
-						
-						
-						$scope.listItems=[];
-						
-						
-						$scope.reload = function(){
-							$scope.listItems=[];
-							$scope.loadMore();
-						};					
-						
-						$scope.loadMore = function(){
+
+				.factory('RemoteList', ['$http', 'utils', function($http, utils) {
+
+						var RemoteList = function(url, loadParams) {
+							this.items = [];
+							this.busy = false;
+							this.total=0;
 							
-							
+							this.init=false;
+
+							this.query='';
+							this.url = url;
+
+							this.loadParams = loadParams;
+						};
+
+						RemoteList.prototype.nextPage = function() {
+							if (!this.shouldLoad())
+								return;
+
+							this.busy = true;
+
+
+
 							var params = {
-										query: $scope.searchModel.query,
-										limit: 20,
-										start: $scope.listItems.length
-									};
-									
-							angular.extend(params, loadParams);
-							
-							
-							$http.get(utils.url(url), {
-									params: params
-								})
-								.success(function(data) {
-									for(var i = 0; i<data.results.length;i++){
-										$scope.listItems.push(data.results[i]);
-									};
-								});
-						};						
-			
-						
-						$scope.searchModel = {
-							query:''
+								query: this.query,
+								limit: 20,
+								start: this.items.length
+							};
+
+							angular.extend(params, this.loadParams);
+
+
+							$http.get(utils.url(this.url), {
+								params: params
+							})
+											.success(function(data) {
+												
+												this.total=data.total;
+												
+												for (var i = 0; i < data.results.length; i++) {
+													this.items.push(data.results[i]);
+												}
+												;
+
+												this.busy = false;
+												this.init=true;
+											}.bind(this));
 						};
 						
-						$scope.search = function($event){							
-							if($event.keyCode===13){
-								$scope.reload();
+					
+						RemoteList.prototype.reload = function(){
+							this.items=[];
+							this.total=0;
+							this.init=false;
+							this.nextPage();
+						};
+						
+						
+						RemoteList.prototype.shouldLoad = function(){
+							var ret= !this.busy && (!this.init || this.items.length < this.total);
+			
+							return ret;
+						};
+
+						RemoteList.prototype.resetSearch = function() {
+							this.query = '';
+							this.reload();
+						};
+
+						RemoteList.search = function($event) {
+							if ($event.keyCode === 13) {
+								this.reload();
 							}
 						};
-					};				
-				}])
-				
+						return RemoteList;
+
+					}])
+
 				.factory('crudFunctions', ['$stateParams', '$http', '$state', 'utils', 'alert', function($stateParams, $http, $state, utils, alert) {
 
 
 						return function($scope, modelName, routePrefix) {
-							
-							
+
+
 
 							$scope.delete = function(model, name) {
 								if (confirm("Are you sure you want to delete '" + name + "'?")) {
-									
-									var url = utils.url(routePrefix + '/delete', {id: $scope.modelId}) ;
-									$http.post(url)
-												.success(function(result) {											
 
-													if (!result.success) {
-														alert.set('warning', result.feedback);
-													} else {
-														$scope.reload();
-														$state.go('^');
-													}
-												});
+									var url = utils.url(routePrefix + '/delete', {id: $scope.modelId});
+									$http.post(url)
+													.success(function(result) {
+
+														if (!result.success) {
+															alert.set('warning', result.feedback);
+														} else {
+															$scope.reload();
+															$state.go('^');
+														}
+													});
 
 								}
-							};							
-							
+							};
+
 
 							$scope.save = function(data) {
 
-								var url = $scope.modelId>0 ? utils.url(routePrefix + '/update', {id: $scope.modelId}) : utils.url(routePrefix + '/create');
+								var url = $scope.modelId > 0 ? utils.url(routePrefix + '/update', {id: $scope.modelId}) : utils.url(routePrefix + '/create');
 
 								var params = {};
 
@@ -174,8 +202,8 @@ angular.module('GO.services', []).
 													alert.clear();
 
 													if (!result.success) {
-														
-														for(var i=0;i<result.errors.length;i++){
+
+														for (var i = 0; i < result.errors.length; i++) {
 															alert.set('warning', result.errors[i]);
 														}
 													} else {
@@ -191,7 +219,7 @@ angular.module('GO.services', []).
 
 								$http.get(url).success(function(result) {
 									$scope.model = result.data[modelName].attributes;
-									
+
 									$scope.modelId = modelId;
 								});
 							};

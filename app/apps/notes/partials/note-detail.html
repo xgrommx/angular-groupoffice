@@ -1,29 +1,27 @@
 
 <div class="detail">
-	<h1><span ng-if="!model.id">Creating</span><span ng-if="model.id>0">Editing</span> note {{model.name}}</h1>
 
-	<form ng-submit="save(model)">	
+	<div class="go-toolbar">
+		<div class="go-toolbar-container">
+			<div class="visible-xs" style="float:left">
+			<a class="btn btn-default" ui-sref="notes">				
+				Back
+			</a>
+			</div>
+			<a style="float:left" class="btn btn-default" ui-sref="notes.edit({noteId: note.attributes.id})">
+				<span class="glyphicon glyphicon-edit"></span>
+				Edit
+			</a>
+			
+			<a class="btn btn-danger" style="float:right;" ng-click="note.delete(note.attributes.name);">
+				<span class="glyphicon glyphicon-trash"></span>
+				Delete
+			</a>
+			</div>
+	</div>
 
-		<div class="form-group">
-			<label for="username">Name</label>
-			<input type="text" id="name" class="form-control" ng-model="model.name" required />
-		</div>
-
-		<div class="form-group">
-			<label for="content">Content</label>
-			<textarea id="content" class="form-control" ng-model="model.content"></textarea>
-		</div>
-
-
-		<!--	<button ng-click="cancel()" class="btn btn-default">Cancel</button>-->
-		<a href="#/apps/notes" class="btn btn-default">Cancel</a>
-		<input type="submit" class="btn btn-primary" value="OK"/>	
-
-
-		<a class="btn btn-danger" style="float:right;" ng-click="delete(model, model.name)"">
-			<span class="glyphicon glyphicon-trash"></span>
-			Delete
-		</a>
-	</form>
-
+	<h1>{{note.attributes.name}}</h1>
+			
+	<pre>{{note.attributes.content}}</pre>			
+		
 </div>

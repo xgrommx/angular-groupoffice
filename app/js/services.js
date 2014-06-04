@@ -37,30 +37,39 @@ angular.module('GO.services', []).
 						};
 					}
 				]).
-				factory('utils', [function() {
+				service('utils', [function() {					
 
-						//Use sessionStorage from browser so it survives browser reloads						
-						return {
-							baseUrl: sessionStorage.baseUrl,
-							securityToken: sessionStorage.securityToken,
-							setBaseUrl: function(url) {
-								this.baseUrl = sessionStorage.baseUrl = url.replace(/^\s+|\s+$/g, '') + '/';
-							},
-							setSecurityToken: function(token) {
-								this.securityToken = sessionStorage.securityToken = token;
-							},
-							url: function(relativeUrl, params) {
-								if (!relativeUrl && !params)
-									return this.baseUrl;
-								var url = this.baseUrl + "index.php?r=" + relativeUrl + "&security_token=" + this.securityToken;
-								if (params) {
-									for (var name in params) {
-										url += "&" + name + "=" + encodeURIComponent(params[name]);
-									}
-								}
-								return url;
-							}
+						var utils = function() {
+							this.baseUrl = localStorage.baseUrl;
+							
+							//Use sessionStorage from browser so it survives browser reloads						
+							this.securityToken = sessionStorage.securityToken;
 						};
+
+						utils.prototype.setBaseUrl = function(url) {
+							
+							//Use localStorage to remember it for the user
+							this.baseUrl = localStorage.baseUrl = url.replace(/^\s+|[\s\/]+$/g, '') + '/';
+						};
+
+
+						utils.prototype.setSecurityToken = function(token) {
+							this.securityToken = sessionStorage.securityToken = token;
+						};
+
+						utils.prototype.url = function(relativeUrl, params) {
+							if (!relativeUrl && !params)
+								return this.baseUrl;
+							var url = this.baseUrl + "index.php?r=" + relativeUrl + "&security_token=" + this.securityToken;
+							if (params) {
+								for (var name in params) {
+									url += "&" + name + "=" + encodeURIComponent(params[name]);
+								}
+							}
+							return url;
+						};
+
+						return new utils;
 					}]).
 				factory('apps', ['$rootScope', function($rootScope) {
 						$rootScope.apps = [];
@@ -84,22 +93,22 @@ angular.module('GO.services', []).
 						return httpRequestTracker;
 					}])
 
-				.factory('RemoteList', ['$http', 'utils', function($http, utils) {
+				.factory('Store', ['$http', 'utils', function($http, utils) {
 
-						var RemoteList = function(url, loadParams) {
+						var Store = function(url, loadParams) {
 							this.items = [];
 							this.busy = false;
-							this.total=0;
-							
-							this.init=false;
+							this.total = 0;
 
-							this.query='';
+							this.init = false;
+
+							this.query = '';
 							this.url = url;
 
 							this.loadParams = loadParams;
 						};
 
-						RemoteList.prototype.nextPage = function() {
+						Store.prototype.nextPage = function() {
 							if (!this.shouldLoad())
 								return;
 
@@ -120,109 +129,121 @@ angular.module('GO.services', []).
 								params: params
 							})
 											.success(function(data) {
-												
-												this.total=data.total;
-												
+
+												this.total = data.total;
+
 												for (var i = 0; i < data.results.length; i++) {
 													this.items.push(data.results[i]);
 												}
 												;
 
 												this.busy = false;
-												this.init=true;
+												this.init = true;
 											}.bind(this));
 						};
-						
-					
-						RemoteList.prototype.reload = function(){
-							this.items=[];
-							this.total=0;
-							this.init=false;
+
+
+						Store.prototype.reload = function() {
+							this.items = [];
+							this.total = 0;
+							this.init = false;
 							this.nextPage();
 						};
-						
-						
-						RemoteList.prototype.shouldLoad = function(){
-							var ret= !this.busy && (!this.init || this.items.length < this.total);
-			
+
+
+						Store.prototype.shouldLoad = function() {
+							var ret = !this.busy && (!this.init || this.items.length < this.total);
+
 							return ret;
 						};
 
-						RemoteList.prototype.resetSearch = function() {
+						Store.prototype.resetSearch = function() {
 							this.query = '';
 							this.reload();
 						};
 
-						RemoteList.search = function($event) {
+						Store.prototype.search = function($event) {
+							
+						
 							if ($event.keyCode === 13) {
 								this.reload();
 							}
 						};
-						return RemoteList;
+						return Store;
 
 					}])
 
-				.factory('crudFunctions', ['$stateParams', '$http', '$state', 'utils', 'alert', function($stateParams, $http, $state, utils, alert) {
+				.factory('Model', ['$http', 'utils', 'alert', function($http, utils, alert) {
 
 
-						return function($scope, modelName, routePrefix) {
+						var Model = function(modelName, routePrefix) {
+							this.modelName = modelName;
+							this.routePrefix = routePrefix;
+
+							this.attributes = null;
+						};
 
 
+						Model.prototype.afterSave = function(model, result) {
+						};
 
-							$scope.delete = function(model, name) {
-								if (confirm("Are you sure you want to delete '" + name + "'?")) {
-
-									var url = utils.url(routePrefix + '/delete', {id: $scope.modelId});
-									$http.post(url)
-													.success(function(result) {
-
-														if (!result.success) {
-															alert.set('warning', result.feedback);
-														} else {
-															$scope.reload();
-															$state.go('^');
-														}
-													});
-
-								}
-							};
+						Model.prototype.afterDelete = function(model, result) {
+						};
 
 
-							$scope.save = function(data) {
+						Model.prototype.delete = function(name) {
+							if (confirm("Are you sure you want to delete '" + name + "'?")) {
 
-								var url = $scope.modelId > 0 ? utils.url(routePrefix + '/update', {id: $scope.modelId}) : utils.url(routePrefix + '/create');
-
-								var params = {};
-
-								params[modelName] = data;
-
-								$http.post(url, params)
+								var url = utils.url(this.routePrefix + '/delete', {id: this.attributes.id});
+								return $http.post(url)
 												.success(function(result) {
 
-													alert.clear();
-
 													if (!result.success) {
-
-														for (var i = 0; i < result.errors.length; i++) {
-															alert.set('warning', result.errors[i]);
-														}
+														alert.set('warning', result.feedback);
 													} else {
-														$scope.reload();
-														$state.go('^');
+														this.afterDelete.call(this, [this, result]);
 													}
-												});
-							};
+												}.bind(this));
 
-							$scope.load = function(modelId) {
-
-								var url = modelId > 0 ? utils.url(routePrefix + '/update', {id: modelId}) : utils.url(routePrefix + '/create');
-
-								$http.get(url).success(function(result) {
-									$scope.model = result.data[modelName].attributes;
-
-									$scope.modelId = modelId;
-								});
-							};
+							}
 						};
+
+
+						Model.prototype.save = function() {
+
+							var url = this.attributes.id > 0 ? utils.url(this.routePrefix + '/update', {id: this.attributes.id}) : utils.url(this.routePrefix + '/create');
+
+							var params = {};
+
+							params[this.modelName] = this.attributes;
+
+							$http.post(url, params)
+											.success(function(result) {
+
+												alert.clear();
+
+												if (!result.success) {
+
+													for (var i = 0; i < result.errors.length; i++) {
+														alert.set('warning', result.errors[i]);
+													}
+												} else {
+
+													this.attributes.id = result.id;
+
+													this.afterSave.call(this, [this, result]);
+												}
+											}.bind(this));
+						};
+
+						Model.prototype.load = function(id) {
+
+							var url = id > 0 ? utils.url(this.routePrefix + '/update', {id: id}) : utils.url(this.routePrefix + '/create');
+
+							$http.get(url).success(function(result) {
+								this.attributes = result.data[this.modelName].attributes;
+							}.bind(this));
+						};
+						return Model;
 
 					}]);

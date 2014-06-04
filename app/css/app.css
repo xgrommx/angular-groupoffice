@@ -1,16 +1,15 @@
 /* app css stylesheet */
 
 body{
-	position:relative;
+
 }
-.container.go-nav{
-	padding-top: 70px;
+h1{
+	color:#777777;
 }
 
-/*.main-containter{
- padding: 20px;
-}*/
-
+pre {
+	white-space: pre-wrap;  
+}
 
 .go-alerts{
 	margin:20px 0;
@@ -21,7 +20,7 @@ input.ng-invalid.ng-dirty {
 	border-color: #A94442;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
- 
+
 input.ng-valid.ng-dirty {
 	border-color: #3C763D;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
@@ -46,14 +45,14 @@ input.ng-valid.ng-dirty {
 	left:50%;
 	width:100px;
 	height:30px;
-	
+
 	margin-left:-50px;
 	margin-top:-15px;
-	
+
 	line-height:30px;
-	
+
 	border: 1px solid #DDDDDD;
-	
+
 	background:white;	
 	z-index:100001;
 	color:#333333;
@@ -72,9 +71,9 @@ input.ng-valid.ng-dirty {
 }
 
 .go-rotate{
-    -webkit-animation:spin 2s linear infinite;
-    -moz-animation:spin 2s linear infinite;
-    animation:spin 2s linear infinite;
+	-webkit-animation:spin 2s linear infinite;
+	-moz-animation:spin 2s linear infinite;
+	animation:spin 2s linear infinite;
 }
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
@@ -104,23 +103,237 @@ input.ng-valid.ng-dirty {
 }
 
 
-#toolbar{
-	background-color:black;
-	color:white;
-	padding:6px;
-	text-align:right;
-	
-}
-
-#toolbar a{
-	color:white;
-}
-
 textarea.form-control{
 	height:200px;
 }
 
 
-.navbar-collapse.in .navbar-form, .navbar-collapse.collapsing .navbar-form{
-	margin: 0;
+
+
+#logo {
+	text-align: center;
+	margin-top:4px;
+	margin-right:6px;
+	float:left;
+}
+
+#logo .orange{
+	font-size:3px;
+	height:7em;
+	width:7em;
+	border-radius: 1.5em;
+	background-color:white;
+	border:0.4em solid #f8971d;
+	line-height:0;
+	padding:0px;
+}
+
+#logo .spacer{
+	margin:0.8em auto;
+	width:4.4em;
+}
+
+#logo .green {
+	background-color: #78a22e;
+	float: left;
+	height: 1em;
+	border-radius: 0.4em;
+	margin: 0.6em 0.2em 0;
+	width: 1em;
+	padding:0;
+	/*opacity: 0.8;*/
+}
+
+#logo	.blue {
+	background-color: #009ac7;
+	float: left;
+	height: 2.4em;
+	border-radius: 0.4em;
+	margin: 0.2em;
+	width: 1em;
+	padding:0;
+	/*opacity: 0.8;*/
+}
+
+
+
+
+.go-header{
+	height:30px;
+	padding: 0px 10px;
+	background: #009CC5;
+}
+
+.go-header-left{
+	float:left;
+}
+
+.go-header-right{
+	float:right;
+	padding-right:10px;
+}
+
+.go-header a{
+	font-size:16px;
+	line-height:30px;
+	color:white;
+}
+
+.go-header h1{
+	margin:0px;
+	padding:0px;
+	color:white;
+	line-height:30px;
+	font-size:16px;
+	float: left;
+}
+
+
+.go-list-wrap{
+	position:fixed;
+	top:30px;
+	right:0px;
+	left:0px;
+	bottom:0px;
+}
+
+.go-list{
+	border:0px;
+	overflow:auto;	
+	position:absolute;
+	top:50px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+
+	margin-bottom:0px;
+}	
+
+.list-group-item:first-child {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.list-group-item:last-child {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.go-content{
+	display:none;
+	padding:10px;
+
+}
+
+.go-content.active{
+	display:block;
+}
+
+.go-list-wrap.inactive{
+	display:none;
+}
+
+
+
+
+.go-toolbar{
+	height:50px;
+}
+
+
+.go-toolbar div.go-toolbar-container	{
+	list-style: none outside none;
+	top:30px;
+	left:0px;
+	right:0px;
+	padding:8px;
+	height:50px;
+	position:fixed;
+	background-color: #F8F8F8;
+	border-bottom: 1px solid #e7e7e7;
+	border-right: 1px solid #e7e7e7;
+}
+
+
+.go-list-toolbar{
+	position:absolute;
+	height:50px;
+	top:0px;
+	left:0px;
+	right:0px;
+	background-color: #F8F8F8;
+	border-bottom: 1px solid #e7e7e7;	
+	z-index: 1030;	
+}
+
+
+
+.go-list-toolbar ul{
+	list-style: none outside none;
+  padding-left: 0;
+}
+
+.go-toolbar-right{
+	float:right;
+}
+
+.go-list-toolbar li{
+	float: left;
+	line-height: 20px;	
+}
+.go-list-toolbar li a{
+	color: #777777;
+	padding:15px 10px;
+	display:block;
+}
+
+.go-list-toolbar .input-group{
+	padding:8px 10px;
+	float:left;
+	width: 330px;
+}
+
+.go-list-toolbar{
+	float:right !important;
+}
+
+
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 40em) {
+	.go-content{
+		display:block;
+		padding-left:410px;
+	}
+
+	.go-list-wrap{
+		width:400px;
+		right:auto;
+	}
+
+	.go-list-wrap.inactive{
+		display:block;
+	}
+
+	.go-toolbar div.go-toolbar-container	{
+		left:400px;
+	}
+
+}
+
+/*
+ * -- DESKTOP (AND UP) MEDIA QUERIES --
+ * On desktops and other large-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 60em) {
+
+
+
+
+
 }

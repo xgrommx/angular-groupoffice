@@ -6,8 +6,8 @@
 
 <form>
 	
-<ul class="list-group" infinite-scroll="loadMore()">
-    <li class="list-group-item" ng-repeat="category in listItems">
+<ul class="list-group" infinite-scroll="store.nextPage()">
+    <li class="list-group-item" ng-repeat="category in store.items">
         <label><input type="checkbox" ng-model="category.checked" ng-change="saveCategory(category);"> {{category.name}}</label>
     </li>  
 </ul>

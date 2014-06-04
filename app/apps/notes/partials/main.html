@@ -1,84 +1,16 @@
 
-
-<!-- Fixed navbar -->
-<!--<div class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavBarCtrl">
-
-	<div class="container-fluid">
-		<div class="navbar-header">
-
-			<button type="button" class="navbar-toggle" ng-click="toggle()">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<span class="navbar-brand">Notes</span>
-		</div>
+<div ng-include="'partials/header.html'"></div>
 
 
-		<div class="navbar-collapse collapse" collapse="isCollapsed">
-
-	
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a ui-sref="notes.detail({noteId: 0})">
-						<span class="glyphicon glyphicon-plus"></span>
-					</a>
-				</li>
-				<li class="dropdown">
-
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
-					<ul class="dropdown-menu">
-						<li><a ui-sref="categories">Enabled categories</a></li>
-						<li class="divider"></li>
-						<li class="dropdown-header">Navigation</li>                  
-						<li><a href="#start">Start page</a></li>
-					</ul>
-				</li>
-
-
-			</ul>
-		</div>
-	</div>
-</div>-->
-
-
-<div class="go-header">
-	
-	<div class="go-header-left">
-	<div id="logo">
-				<div class="orange">
-					<div class="spacer">
-							 
-					<div class="green"></div>
-					<div class="green"></div>
-					<div class="green"></div><br /><div class="blue"></div>
-					<div class="blue"></div>
-					<div class="blue"></div>
-					</div>
-				</div>
-    </div>
-	
-	
-		<h1>Notes</h1>
-	</div>
-	
-	<div class="go-header-right">
-	<a href="#start"><i class="glyphicon glyphicon-th"></i></a>
-	
-	</div>
-</div>
-
-
+<!-- The detail and edit pane is loaded in this view -->
 <div class="go-content" ng-class="{active:noteActive()}">
 	<div ui-view></div>
 </div>
 
 
-
+<!-- Start of list panel with toolbar -->
 <div ng-class="{inactive:noteActive()}" class="go-list-wrap">
-	
-	
+
 	<div class="go-list-toolbar">
 		<ul class="go-toolbar-right">
 			<li>
@@ -96,36 +28,30 @@
 				<a ui-sref="notes.edit({noteId: 0})">
 					<span class="glyphicon glyphicon-plus"></span>
 				</a>
-				
+
 			</li>
 			<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
-					<ul class="dropdown-menu dropdown-menu-right">
-						<li><a ui-sref="categories">Enabled categories</a></li>
-						<li class="divider"></li>
-						<li class="dropdown-header">Navigation</li>                  
-						<li><a href="#start">Start page</a></li>
-					</ul>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a ui-sref="categories">Settings</a></li>            
+					<li><a ng-click="store.multiselect();TODO">Enable checkboxes</a></li>
+				</ul>
 			</li>
 		</ul>
-		
+
 	</div>
 
-<div  class="go-list list-group" infinite-scroll="store.nextPage()" infinite-scroll-disabled="!store.shouldLoad()">
-	
-	
-	
-	
-	
-	<a ui-sref="notes.detail({noteId: note.id})" class="list-group-item" ng-repeat="note in store.items">				
-		<span style="float:right;color:#777777;font-style:italic">{{note.mtime * 1000| date:'medium'}}</span>
-		<h4 class="list-group-item-heading">{{note.name}}</h4>
+	<div  class="go-list list-group" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
 
-		<p class="list-group-item-text">
-			<i ng-if="note.encrypted" class="fa fa-lock" style="margin-right:10px;"></i>{{note.excerpt}}
-		</p>
-	</a>
-</div>
+		<a ui-sref="notes.detail({noteId: note.id})" class="list-group-item" ng-repeat="note in store.items">				
+			<span class="go-list-date">{{note.mtime * 1000| date:'medium'}}</span>
+			<h4 class="list-group-item-heading">{{note.name}}</h4>
 
-	
+			<p class="list-group-item-text">
+				<i ng-if="note.encrypted" class="fa fa-lock" style="margin-right:10px;"></i>{{note.excerpt}}
+			</p>
+		</a>
+	</div>
+
+
 </div>

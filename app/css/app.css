@@ -160,7 +160,7 @@ textarea.form-control{
 
 .go-header{
 	height:30px;
-	padding: 0px 10px;
+	padding: 0px 0px 0px 14px;
 	background: #009CC5;
 }
 
@@ -208,6 +208,12 @@ textarea.form-control{
 
 	margin-bottom:0px;
 }	
+
+.go-list-date{
+	float:right;
+	color:#777777;
+	font-style:italic;
+}
 
 .list-group-item:first-child {
 	border-top-left-radius: 0px;
@@ -263,6 +269,7 @@ textarea.form-control{
 	right:0px;
 	background-color: #F8F8F8;
 	border-bottom: 1px solid #e7e7e7;	
+	border-right: 1px solid #e7e7e7;	
 	z-index: 1030;	
 }
 
@@ -277,11 +284,11 @@ textarea.form-control{
 	float:right;
 }
 
-.go-list-toolbar li{
+.go-list-toolbar > ul > li{
 	float: left;
 	line-height: 20px;	
 }
-.go-list-toolbar li a{
+.go-list-toolbar > ul > li > a{
 	color: #777777;
 	padding:15px 10px;
 	display:block;
@@ -337,3 +344,15 @@ textarea.form-control{
 
 
 }
+
+
+
+/* Original Bootstrap's CSS depends on empty href attributes to style cursors
+for several components (pagination, tabs etc.). But in AngularJS adding empty 
+href attributes to link tags will cause unwanted route changes. This is why we 
+need to remove empty href attributes from directive templates and as a result 
+styling is not applied correctly. The remedy is simple, just add the following 
+styling to your application:
+*/
+
+.go-toolbar a, .go-list-toolbar a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

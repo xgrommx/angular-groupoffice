@@ -6,12 +6,15 @@ angular.module('GO.controllers')
 
 				.controller('NotesController', ['$scope','$state', 'Store', function($scope, $state, Store) {
 						
+						$scope.appName='Notes';
+						
 						$scope.noteActive = function(){
 							return !$state.is('notes');								
 						};
 						
 						$scope.store = new Store('notes/note/store',
 										{
+											limit:10,
 											excerpt:true,
 											sort:'mtime',
 											dir:'DESC'

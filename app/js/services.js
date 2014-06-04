@@ -108,25 +108,27 @@ angular.module('GO.services', []).
 							this.loadParams = loadParams;
 						};
 
-						Store.prototype.nextPage = function() {
+						Store.prototype.nextPage = function(params) {
 							if (!this.shouldLoad())
 								return;
 
 							this.busy = true;
 
 
+							params = params || {};
 
-							var params = {
+
+							var defaultParams = {
 								query: this.query,
-								limit: 20,
+								limit: 10,
 								start: this.items.length
 							};
 
-							angular.extend(params, this.loadParams);
+							angular.extend(defaultParams, this.loadParams, params);
 
 
 							$http.get(utils.url(this.url), {
-								params: params
+								params: defaultParams
 							})
 											.success(function(data) {
 
@@ -144,10 +146,15 @@ angular.module('GO.services', []).
 
 
 						Store.prototype.reload = function() {
+							
+							var itemCount = this.items.length;
+							
 							this.items = [];
 							this.total = 0;
 							this.init = false;
-							this.nextPage();
+							this.nextPage({
+								limit: itemCount
+							});
 						};
 
 

@@ -24,22 +24,32 @@ angular.module('GO.controllers')
 												
 						
 						$scope.note = new Model('note', 'notes/note');
-						
+						$scope.note.afterDelete = function(note, result){							
+							$scope.store.reload();
+							$state.go('notes');
+						};						
 						$scope.note.load($stateParams.noteId);						
 
 					}]).
 				controller('NoteEditController', ['Model','$scope', '$state', '$stateParams', function(Model,$scope, $state, $stateParams) {
 						
-												
-						
 						$scope.note = new Model('note', 'notes/note');						
-						
-						$scope.note.afterSave = $scope.note.afterDelete = function(note, result){							
+						$scope.note.afterSave = function(note, result){							
 							$scope.store.reload();
 							$state.go('notes.detail',{noteId:$scope.note.attributes.id});
 						};
 						
-						$scope.note.load($stateParams.noteId);				
+						$scope.note.load($stateParams.noteId);
+						
+						
+						$scope.cancel = function(){
+							if($scope.note.attributes.id){
+								$state.go('notes.detail',{noteId:$scope.note.attributes.id});
+							}else
+							{
+								$state.go('^');
+							}
+						};
 					}]).
 								
 				controller('CategoryController', ['Store','$scope', '$http', 'utils', function(Store,$scope,$http,utils) {

@@ -12,7 +12,7 @@
 <div ng-class="{inactive:noteActive()}" class="go-list-wrap">
 
 	<div class="go-list-toolbar">
-		<ul class="go-toolbar-right">
+		<ul class="go-toolbar-left">
 			<li>
 				<div class="input-group">
 					<input type="text" class="form-control" ng-keypress="store.search($event)" ng-model="store.query" placeholder="Search..." />
@@ -24,6 +24,8 @@
 					</div>
 				</div>
 			</li>
+		</ul>
+		<ul class="go-toolbar-right">
 			<li>
 				<a ui-sref="notes.edit({noteId: 0})">
 					<span class="glyphicon glyphicon-plus"></span>
@@ -44,7 +46,7 @@
 	<div  class="go-list list-group" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
 
 		<a ui-sref="notes.detail({noteId: note.id})" class="list-group-item" ng-repeat="note in store.items">				
-			<span class="go-list-date">{{note.mtime * 1000| date:'medium'}}</span>
+			<span class="go-list-date">{{note.mtime * 1000| date:'short'}}</span>
 			<h4 class="list-group-item-heading">{{note.name}}</h4>
 
 			<p class="list-group-item-text">

@@ -1,27 +1,33 @@
 
-<div class="detail">
+<div class="go-toolbar">
+	<div class="go-toolbar-container">
+		<ul class="go-toolbar-left">
 
-	<div class="go-toolbar">
-		<div class="go-toolbar-container">
-			<div class="visible-xs" style="float:left">
-			<a class="btn btn-default" ui-sref="notes">				
-				Back
-			</a>
-			</div>
-			<a style="float:left" class="btn btn-default" ui-sref="notes.edit({noteId: note.attributes.id})">
-				<span class="glyphicon glyphicon-edit"></span>
-				Edit
-			</a>
-			
-			<a class="btn btn-danger" style="float:right;" ng-click="note.delete(note.attributes.name);">
-				<span class="glyphicon glyphicon-trash"></span>
-				Delete
-			</a>
-			</div>
+			<li class="visible-xs" style="float:left">
+				<a class="btn btn-default" ui-sref="notes">				
+					Back
+				</a>
+			</li>
+
+			<li>
+				<a style="float:left" class="btn btn-default" ui-sref="notes.edit({noteId: note.attributes.id})">
+					<span class="glyphicon glyphicon-edit"></span>
+					Edit
+				</a>
+
+			</li>
+		</ul>
+		<ul class="go-toolbar-right">
+			<li>
+				<a class="btn btn-danger" style="float:right;" ng-click="note.delete(note.attributes.name);">
+					<span class="glyphicon glyphicon-trash"></span>
+					Delete
+				</a>
+			</li>
+		</ul>
 	</div>
 
 	<h1>{{note.attributes.name}}</h1>
-			
+
 	<pre>{{note.attributes.content}}</pre>			
-		
-</div>
+

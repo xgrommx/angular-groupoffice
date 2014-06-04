@@ -3,9 +3,6 @@
 body{
 
 }
-h1{
-	color:#777777;
-}
 
 pre {
 	white-space: pre-wrap;  
@@ -162,6 +159,10 @@ textarea.form-control{
 	height:30px;
 	padding: 0px 0px 0px 14px;
 	background: #009CC5;
+	position: fixed;
+	top:0px;
+	left:0px;
+	right:0px;
 }
 
 .go-header-left{
@@ -227,8 +228,14 @@ textarea.form-control{
 
 .go-content{
 	display:none;
-	padding:10px;
+	padding:10px; 
+	margin-top: 80px;/* Top + detail toolbar toolbar on top */
+}
 
+.go-content h1{
+	margin-top:0px;
+	color:#333;
+	font-size:18px;
 }
 
 .go-content.active{
@@ -243,7 +250,7 @@ textarea.form-control{
 
 
 .go-toolbar{
-	height:50px;
+
 }
 
 
@@ -275,21 +282,30 @@ textarea.form-control{
 
 
 
-.go-list-toolbar ul{
+.go-list-toolbar ul, .go-toolbar ul{
 	list-style: none outside none;
   padding-left: 0;
+}
+
+.go-toolbar-left{
+	float:left;
 }
 
 .go-toolbar-right{
 	float:right;
 }
 
-.go-list-toolbar > ul > li{
+.go-toolbar ul > li, .go-list-toolbar > ul > li{
 	float: left;
 	line-height: 20px;	
 }
+
+.go-toolbar ul > li{
+	padding-right: 6px;
+}
+
 .go-list-toolbar > ul > li > a{
-	color: #777777;
+	color: #333333;
 	padding:15px 10px;
 	display:block;
 }
@@ -297,7 +313,7 @@ textarea.form-control{
 .go-list-toolbar .input-group{
 	padding:8px 10px;
 	float:left;
-	width: 330px;
+	width: 240px;
 }
 
 .go-list-toolbar{

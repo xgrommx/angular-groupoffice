@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Group-Office">
+            <file>file:/var/www/angular-groupoffice/app/partials/header.html</file>
+            <file>file:/var/www/angular-groupoffice/app/js/directives.js</file>
             <file>file:/var/www/angular-groupoffice/app/apps/notes/partials/main.html</file>
             <file>file:/var/www/angular-groupoffice/app/index.html</file>
-            <file>file:/var/www/angular-groupoffice/app/apps/notes/partials/note-detail.html</file>
             <file>file:/var/www/angular-groupoffice/app/apps/notes/js/controllers.js</file>
             <file>file:/var/www/angular-groupoffice/app/apps/notes/partials/categories.html</file>
             <file>file:/var/www/angular-groupoffice/app/css/app.css</file>
+            <file>file:/var/www/angular-groupoffice/app/apps/notes/partials/note-edit.html</file>
+            <file>file:/var/www/angular-groupoffice/app/css/select2-bootstrap.css</file>
             <file>file:/var/www/angular-groupoffice/app/js/services.js</file>
         </group>
     </open-files>

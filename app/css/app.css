@@ -337,6 +337,11 @@ textarea.form-control{
 		width:400px;
 		right:auto;
 	}
+	
+	.go-list-fullscreen{
+		right:0px;
+		width:auto;
+	}
 
 	.go-list-wrap.inactive{
 		display:block;
@@ -344,6 +349,11 @@ textarea.form-control{
 
 	.go-toolbar div.go-toolbar-container	{
 		left:400px;
+	}
+	
+	
+	.go-list-fullscreen .go-toolbar div.go-toolbar-container	{
+		left:0px;
 	}
 
 }

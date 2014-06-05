@@ -108,9 +108,14 @@ angular.module('GO.services', []).
 							this.loadParams = loadParams;
 						};
 
-						Store.prototype.nextPage = function(params) {
-							if (!this.shouldLoad())
-								return;
+
+						/**
+						 * Query the server
+						 * 
+						 * @param object params
+						 * @returns array
+						 */
+						Store.prototype.load = function(params) {
 
 							this.busy = true;
 
@@ -121,13 +126,13 @@ angular.module('GO.services', []).
 							var defaultParams = {
 								query: this.query,
 								limit: 10,
-								start: this.items.length
+								start: 0
 							};
 
 							angular.extend(defaultParams, this.loadParams, params);
 
 
-							$http.get(utils.url(this.url), {
+							return $http.get(utils.url(this.url), {
 								params: defaultParams
 							})
 											.success(function(data) {
@@ -141,10 +146,31 @@ angular.module('GO.services', []).
 
 												this.busy = false;
 												this.init = true;
+												
 											}.bind(this));
 						};
+						
+						/**
+						 * Query the server for the next page of results
+						 * 
+						 * @returns Store
+						 */
+						
+						Store.prototype.nextPage = function(){			
+							
+							if (!this.shouldLoad())
+								return false;
+							
+							return this.load({
+								start: this.items.length
+							});
+						};
 
-
+						/**
+						 * Reload the store with current parameters
+						 * 
+						 * @returns Store
+						 */
 						Store.prototype.reload = function() {
 							
 							var itemCount = this.items.length;
@@ -152,7 +178,7 @@ angular.module('GO.services', []).
 							this.items = [];
 							this.total = 0;
 							this.init = false;
-							this.nextPage({
+							return this.load({
 								limit: itemCount
 							});
 						};
@@ -168,10 +194,10 @@ angular.module('GO.services', []).
 							this.query = '';
 							this.reload();
 						};
-
-						Store.prototype.search = function($event) {
-							
 						
+						
+
+						Store.prototype.searchListener = function($event) {													
 							if ($event.keyCode === 13) {
 								this.reload();
 							}
@@ -180,7 +206,7 @@ angular.module('GO.services', []).
 
 					}])
 
-				.factory('Model', ['$http', 'utils', 'alert', function($http, utils, alert) {
+				.factory('Model', ['$http', '$q', 'utils', 'alert', function($http, $q, utils, alert) {
 
 
 						var Model = function(modelName, routePrefix) {
@@ -224,7 +250,7 @@ angular.module('GO.services', []).
 
 							params[this.modelName] = this.attributes;
 
-							$http.post(url, params)
+							return $http.post(url, params)
 											.success(function(result) {
 
 												alert.clear();
@@ -244,12 +270,13 @@ angular.module('GO.services', []).
 						};
 
 						Model.prototype.load = function(id) {
-
+							
 							var url = id > 0 ? utils.url(this.routePrefix + '/update', {id: id}) : utils.url(this.routePrefix + '/create');
 
-							$http.get(url).success(function(result) {
-								this.attributes = result.data[this.modelName].attributes;
+							return $http.get(url).success(function(result) {
+								this.attributes = result.data[this.modelName].attributes;								
 							}.bind(this));
+							
 						};
 						return Model;
 

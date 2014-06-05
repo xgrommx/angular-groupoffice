@@ -5,14 +5,13 @@
 
 			<li class="visible-xs" style="float:left">
 				<a class="btn btn-default" ui-sref="notes">				
-					Back
+					<span class="glyphicon glyphicon-step-backward"></span> Back
 				</a>
 			</li>
 
 			<li>
 				<a style="float:left" class="btn btn-default" ui-sref="notes.edit({noteId: note.attributes.id})">
-					<span class="glyphicon glyphicon-edit"></span>
-					Edit
+					<span class="glyphicon glyphicon-edit"></span> Edit
 				</a>
 
 			</li>
@@ -20,8 +19,7 @@
 		<ul class="go-toolbar-right">
 			<li>
 				<a class="btn btn-danger" style="float:right;" ng-click="note.delete(note.attributes.name);">
-					<span class="glyphicon glyphicon-trash"></span>
-					Delete
+					<span class="glyphicon glyphicon-trash"></span> Delete
 				</a>
 			</li>
 		</ul>

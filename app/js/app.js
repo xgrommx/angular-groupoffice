@@ -11,7 +11,6 @@ var GO = angular.module('GO', [
 	'ui.bootstrap',
 	'ui.router',
 	'ui.utils',
-	'ui.select2',
 	'ngTouch',
 	
 	

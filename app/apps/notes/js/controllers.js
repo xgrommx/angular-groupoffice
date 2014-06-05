@@ -26,7 +26,47 @@ angular.module('GO.controllers')
 							$scope.store.reload();
 							$state.go('notes');
 						};
-						$scope.note.load($stateParams.noteId);
+						
+						
+						
+						
+						
+						$scope.loadNote = function(id, params){
+							
+							params = params || {};
+							
+							var promise = $scope.note.load(id, params);
+							
+							promise.then(function(result){
+								if(result.data.data && result.data.data.note.attributes.encrypted){
+									bootbox.prompt("Enter password to decrypt", function(password) {
+										if (password === null) {
+											bootbox.alert('Access denied');
+											$state.go('notes');
+										} else {
+											var nextPromise = $scope.loadNote(id, {password: password});
+											
+											nextPromise.then(function(result){
+												if(!result.data.success){
+													bootbox.alert(result.data.feedback, function(){
+														$scope.loadNote(id);
+													});
+												}
+											});
+										}
+									});														
+
+								}
+							});
+							
+							return promise;
+						};
+						
+
+						
+						$scope.loadNote($stateParams.noteId);
+						
+						
 
 					}]).
 				controller('NoteEditController', ['Model', '$scope', '$state', '$stateParams', function(Model, $scope, $state, $stateParams) {
@@ -38,7 +78,6 @@ angular.module('GO.controllers')
 							$state.go('notes.detail', {noteId: $scope.note.attributes.id});
 						};
 						$scope.note.load($stateParams.noteId);
-
 
 						$scope.cancel = function() {
 							if ($scope.note.attributes.id) {

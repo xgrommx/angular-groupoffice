@@ -6,37 +6,7 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('GO.services', []).
-				value('version', '0.1').
-				factory('alert', ['$rootScope', function($rootScope) {
-						var alertService;
-						$rootScope.alerts = [];
-						return alertService = {
-							set: function(type, msg) {
-								this.clear();
-								this.add(type, msg);
-							},
-							add: function(type, msg) {
-
-								return $rootScope.alerts.push({
-									type: type,
-									msg: msg,
-									close: function() {
-										return alertService.closeAlert(this);
-									}
-								});
-							},
-							closeAlert: function(alert) {
-								return this.closeAlertIdx($rootScope.alerts.indexOf(alert));
-							},
-							closeAlertIdx: function(index) {
-								return $rootScope.alerts.splice(index, 1);
-							},
-							clear: function() {
-								$rootScope.alerts = [];
-							}
-						};
-					}
-				]).
+				value('version', '0.1').				
 				service('utils', [function() {					
 
 						var utils = function() {
@@ -206,7 +176,7 @@ angular.module('GO.services', []).
 
 					}])
 
-				.factory('Model', ['$http', '$q', 'utils', 'alert', function($http, $q, utils, alert) {
+				.factory('Model', ['$http', '$q', 'utils', function($http, $q, utils) {
 
 
 						var Model = function(modelName, routePrefix) {
@@ -232,7 +202,7 @@ angular.module('GO.services', []).
 												.success(function(result) {
 
 													if (!result.success) {
-														alert.set('warning', result.feedback);
+														bootbox.alert(result.feedback);
 													} else {
 														this.afterDelete.call(this, [this, result]);
 													}
@@ -253,12 +223,10 @@ angular.module('GO.services', []).
 							return $http.post(url, params)
 											.success(function(result) {
 
-												alert.clear();
-
 												if (!result.success) {
 
-													for (var i = 0; i < result.errors.length; i++) {
-														alert.set('warning', result.errors[i]);
+													for (var i = 0; i < result.errors.length; i++) {														
+														bootbox.alert(result.errors[i]);
 													}
 												} else {
 
@@ -269,12 +237,18 @@ angular.module('GO.services', []).
 											}.bind(this));
 						};
 
-						Model.prototype.load = function(id) {
+						Model.prototype.load = function(id, params) {
 							
-							var url = id > 0 ? utils.url(this.routePrefix + '/update', {id: id}) : utils.url(this.routePrefix + '/create');
+							params = params || {};
+							
+							if(id)
+								params.id=id;
+							
+							var url = id > 0 ? utils.url(this.routePrefix + '/update', params) : utils.url(this.routePrefix + '/create', params);
 
 							return $http.get(url).success(function(result) {
-								this.attributes = result.data[this.modelName].attributes;								
+								if(result.data)
+									this.attributes = result.data[this.modelName].attributes;								
 							}.bind(this));
 							
 						};

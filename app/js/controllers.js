@@ -6,7 +6,7 @@
 angular.module('GO.controllers', ['GO'])
 
 
-				.controller('LoginController', ['$scope', '$http', '$state', 'utils', 'alert', function($scope, $http, $state, utils, alert) {
+				.controller('LoginController', ['$scope', '$http', '$state', 'utils', function($scope, $http, $state, utils) {
 						$scope.master = $scope.user = {username: localStorage.username, password: '', rememberUsername: localStorage.rememberUsername};
 
 						$scope.config = {url: utils.baseUrl};
@@ -21,10 +21,9 @@ angular.module('GO.controllers', ['GO'])
 							$http.post(url, user)
 											.success(function(data, status, header) {
 
-												alert.clear();
 
 												if (!data.success) {
-													alert.set('warning', data.feedback);
+													bootbox.alert(data.feedback);
 												} else {
 													
 													if($scope.user.rememberUsername){

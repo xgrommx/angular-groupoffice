@@ -1,12 +1,32 @@
 
-<div class="container">
-	<a style="float:right; "class="btn btn-default" ng-click="logout()">Logout</a>
+<div class="go-header">	
+	<div class="go-header-left">
+	<div id="logo">
+				<div class="orange">
+					<div class="spacer">
+							 
+					<div class="green"></div>
+					<div class="green"></div>
+					<div class="green"></div><br /><div class="blue"></div>
+					<div class="blue"></div>
+					<div class="blue"></div>
+					</div>
+				</div>
+    </div>	
+		<h1>GroupOffice</h1>
+	</div>	
+	<div class="go-header-right">
+		<a href="#" ng-click="logout()"><i class="glyphicon glyphicon-log-out"></i></a>
+	</div>
+</div>
 
-	<h1>Apps:</h1>
+<div class="go-start-screen">
 
 	<ul>
-		<li ng-repeat="app in apps"><a ui-sref="{{app.id}}">{{ app.title}}</a></li>
-
+		<li ng-repeat="app in apps">
+			
+			<a ui-sref="{{app.id}}"><i class="fa fa-edit"></i> {{ app.title}}</a>		
+		</li>
 	</ul>
 
 </div>

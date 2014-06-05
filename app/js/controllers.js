@@ -7,7 +7,7 @@ angular.module('GO.controllers', ['GO'])
 
 
 				.controller('LoginController', ['$scope', '$http', '$state', 'utils', 'alert', function($scope, $http, $state, utils, alert) {
-						$scope.master = $scope.user = {username: '', password: ''};
+						$scope.master = $scope.user = {username: localStorage.username, password: '', rememberUsername: localStorage.rememberUsername};
 
 						$scope.config = {url: utils.baseUrl};
 
@@ -26,6 +26,14 @@ angular.module('GO.controllers', ['GO'])
 												if (!data.success) {
 													alert.set('warning', data.feedback);
 												} else {
+													
+													if($scope.user.rememberUsername){
+														localStorage.username=$scope.user.username;
+														localStorage.rememberUsername=true;
+													}else
+													{
+														localStorage.rememberUsername=false;
+													}
 
 													//Set the security token returned by Group-Office that must be used in all requests to prevent
 													//Cross site scripting attacks

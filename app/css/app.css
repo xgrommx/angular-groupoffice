@@ -190,6 +190,37 @@ textarea.form-control{
 }
 
 
+.go-start-screen{
+	margin-top:30px;
+	padding:20px;
+}
+
+
+.go-start-screen ul{
+	list-style:none;
+}
+
+.go-start-screen ul li{
+	float:left;
+	font-size:16px;
+	color: #333;
+	text-align:center;
+}
+
+.go-start-screen ul li a{
+	color: #333;
+}
+
+.go-start-screen ul li a:hover{
+	text-decoration: none;
+}
+
+.go-start-screen ul li a i{
+	font-size:48px;
+	display:block;
+}
+
+
 .go-list-wrap{
 	position:fixed;
 	top:30px;

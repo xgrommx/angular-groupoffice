@@ -329,15 +329,10 @@ angular.module('GO.directives', []).
 							trigger: '@focus'
 						},
 						link: function(scope, element) {
-							scope.$watch('trigger', function(value) {
-								
-								console.log(value);
-								
-//								if (value === "true") {
+							scope.$watch('trigger', function(value) {								
 									$timeout(function() {
 										element[0].focus();
 									});
-//								}
 							});
 						}
 					};

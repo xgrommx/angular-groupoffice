@@ -12,7 +12,7 @@
 		<div class="go-login-window">
 
 			<header>
-				<i class="fa fa-lock"></i> {{'Login to GroupOffice' | translate}}
+				<i class="fa fa-lock"></i> {{'Login to GroupOffice' | t}}
 			</header>
 
 
@@ -26,25 +26,25 @@
 				</div>
 
 				<div class="form-group">
-					<label for="username">{{'Username' | translate}}</label>
-					<input id="username" type="text" class="form-control" ng-model="user.username" placeholder="{{'Username' | translate}}" required autocomplete="off">
+					<label for="username">{{'Username' | t}}</label>
+					<input id="username" type="text" class="form-control" ng-model="user.username" placeholder="{{'Username' | t}}" required autocomplete="off">
 				</div>
 				
 				<div class="form-group">
-					<label for="password">{{'Password' | translate}}</label>
-					<input id="password" type="password" class="form-control" ng-model="user.password" placeholder="{{'Password' | translate}}" required autocomplete="off">
+					<label for="password">{{'Password' | t}}</label>
+					<input id="password" type="password" class="form-control" ng-model="user.password" placeholder="{{'Password' | t}}" required autocomplete="off">
 				</div>
 				
 				<div class="checkbox">
 					<label>
-						<input type="checkbox" ng-model="user.rememberUsername"> {{'Remember username' | translate}}
+						<input type="checkbox" ng-model="user.rememberUsername"> {{'Remember username' | t}}
 					</label>
 				</div>
 			</div>
 
 			<footer>
-				<button ng-click="reset()" class="btn btn-red">{{'Reset' | translate}}</button>
-				<input type="submit" class="btn btn-primary" value="{{'Login' | translate}}"/>
+				<button ng-click="reset()" class="btn btn-red">{{'Reset' | t}}</button>
+				<input type="submit" class="btn btn-primary" value="{{'Login' | t}}"/>
 			</footer>
 
 

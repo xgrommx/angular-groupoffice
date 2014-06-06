@@ -49,6 +49,27 @@ angular.module('GO.services', []).
 								});
 							},
 							
+							confirm :  function(text, title) {
+								var config = {
+									text:text,
+									title:title									
+								};
+								
+								var confirm = $modal.open({
+									windowClass: 'go-modal-alert',
+									templateUrl: 'partials/modal/confirm.html',
+									controller: this.modalInstanceCtrl,
+									size: 'sm',
+									resolve: {										
+										config: function() {
+											return config;
+										}
+									}
+								});
+								
+								return confirm;
+							},
+							
 							/**
 							 * var prompt = msg.prompt("Text here", "Title");
 							 * prompt.result.then(function (input) {
@@ -263,7 +284,7 @@ angular.module('GO.services', []).
 
 					}])
 
-				.factory('Model', ['$http', 'msg', 'utils', function($http, msg, utils) {
+				.factory('Model', ['$http', 'msg', 'utils', 'translate', function($http, msg, utils, translate) {
 
 
 						var Model = function(modelName, routePrefix) {
@@ -282,21 +303,23 @@ angular.module('GO.services', []).
 
 
 						Model.prototype.delete = function(name) {
-							if (confirm("Are you sure you want to delete '" + name + "'?")) {
+							var confirm = msg.confirm(translate.t("Are you sure you want to delete '{name}'?").replace('{name}',name));
 
-								var url = utils.url(this.routePrefix + '/delete', {id: this.attributes.id});
-								return $http.post(url)
-												.success(function(result) {
+							confirm.result.then(function(){
 
-													if (!result.success) {
-														msg.alert(result.feedback);
-													} else {
-														this.afterDelete.call(this, [this, result]);
-													}
-												}.bind(this));
+									var url = utils.url(this.routePrefix + '/delete', {id: this.attributes.id});
+									return $http.post(url)
+													.success(function(result) {
 
-							}
-						};
+														if (!result.success) {
+															msg.alert(result.feedback);
+														} else {
+															this.afterDelete.call(this, [this, result]);
+														}
+													}.bind(this));
+								}.bind(this));
+							};
+						
 
 
 						Model.prototype.save = function() {

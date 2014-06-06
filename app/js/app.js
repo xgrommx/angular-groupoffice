@@ -6,16 +6,17 @@ var GO = angular.module('GO', [
 	'ui.router',
 	'ui.utils',
 	'ngTouch',
-	'pascalprecht.translate',
 	//Group-Office modules
 	'GO.apps',
+	'GO.translate',
 	'GO.filters',
 	'GO.services',
 	'GO.directives',
 	'GO.controllers',
 	
 	'GO.notes',
-	'GO.notes.controllers'
+	'GO.notes.controllers',
+	'GO.notes.services'
 ]).
 				config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 						// For any unmatched url, redirect to /state1
@@ -47,6 +48,6 @@ var GO = angular.module('GO', [
 GO.value('version', '1.0');
 
 
-GO.config(['$translateProvider', function($translateProvider) {
-		$translateProvider.preferredLanguage('nl');
+GO.config(['translateProvider', function(translateProvider) {
+		translateProvider.setLanguage('nl');
 	}]);

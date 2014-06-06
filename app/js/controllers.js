@@ -8,8 +8,6 @@ angular.module('GO.controllers', ['GO'])
 
 				.controller('LoginController', ['$scope', '$http', '$state', 'utils', 'msg', function($scope, $http, $state, utils, msg) {
 						$scope.master = $scope.user = {username: localStorage.username, password: '', rememberUsername: localStorage.rememberUsername==="true"};
-		
-		console.log($scope.user);
 
 						$scope.config = {url: utils.baseUrl};
 

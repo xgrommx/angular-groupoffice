@@ -3,7 +3,7 @@
 
 angular.module('GO.notes',['GO']).
 				//Register the app
-				config(['appsProvider', '$translateProvider',function(appsProvider, $translate) {						
+				config(['appsProvider',function(appsProvider) {						
 						
 						
 						appsProvider.addApp('notes');

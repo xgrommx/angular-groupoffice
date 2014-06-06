@@ -1,6 +1,8 @@
-angular.module('GO').config(['$translateProvider', function($translateProvider) {
+angular.module('GO').config(['translateProvider', function(translateProvider) {
 		
-		$translateProvider.translations('nl', {
+		translateProvider.addTranslations('nl', {
+			'Yes' : 'Ja',
+			'No' : 'Nee',
 			'Edit': 'Bewerken',
 			'Delete': 'Verwijderen',
 			'Cancel': 'Annuleren',
@@ -13,7 +15,8 @@ angular.module('GO').config(['$translateProvider', function($translateProvider) 
 			'Password' : 'Wachtwoord',
 			'Remember username' : 'Gebruikersnaam onthouden',
 			'Login to GroupOffice' : 'Inloggen bij GroupOffice',
-			'Access denied': 'Geen toegang'
+			'Access denied': 'Geen toegang',
+			"Are you sure you want to delete '{name}'?" : "Weet u zeker dat u '{name}' wilt verwijderen?"
 		});
 
 		

@@ -6,8 +6,10 @@
 angular.module('GO.controllers', ['GO'])
 
 
-				.controller('LoginController', ['$scope', '$http', '$state', 'utils', function($scope, $http, $state, utils) {
-						$scope.master = $scope.user = {username: localStorage.username, password: '', rememberUsername: localStorage.rememberUsername};
+				.controller('LoginController', ['$scope', '$http', '$state', 'utils', 'msg', function($scope, $http, $state, utils, msg) {
+						$scope.master = $scope.user = {username: localStorage.username, password: '', rememberUsername: localStorage.rememberUsername==="true"};
+		
+		console.log($scope.user);
 
 						$scope.config = {url: utils.baseUrl};
 
@@ -23,7 +25,7 @@ angular.module('GO.controllers', ['GO'])
 
 
 												if (!data.success) {
-													bootbox.alert(data.feedback);
+													msg.alert(data.feedback);
 												} else {
 													
 													if($scope.user.rememberUsername){
@@ -55,9 +57,9 @@ angular.module('GO.controllers', ['GO'])
 
 //						$scope.reset();
 					}])
-				.controller('StartController', ['$scope','$state', 'apps', '$http', 'utils', function($scope, $state, $apps, $http, utils) {
-
-						$scope.apps = $apps;
+				.controller('StartController', ['$scope','$state', 'apps', '$http', 'utils', function($scope, $state, apps, $http, utils) {
+						
+						$scope.apps = apps;
 
 
 						$scope.logout = function() {
@@ -77,16 +79,4 @@ angular.module('GO.controllers', ['GO'])
 							return httpRequestTracker.hasPendingRequests();
 						};
 
-
-					}])
-				.controller('NavBarCtrl', ['$scope', function($scope){
-						
-							$scope.isCollapsed = true;
-							
-							$scope.toggle = function(){
-								console.log($scope.isCollapsed); 
-								$scope.isCollapsed = !$scope.isCollapsed;
-							};
-						}]);
-
-
+					}]);

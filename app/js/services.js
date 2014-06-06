@@ -127,19 +127,19 @@ angular.module('GO.services', []).
 						};
 
 						return new utils;
-					}]).
-				factory('apps', ['$rootScope', function($rootScope) {
-						$rootScope.apps = [];
-
-						return {
-							add: function(name, title) {
-								return $rootScope.apps.push({
-									name: name,
-									title: title
-								});
-							}
-						};
 					}])
+//				factory('apps', ['$rootScope', function($rootScope) {
+//						$rootScope.apps = [];
+//
+//						return {
+//							add: function(name, title) {
+//								return $rootScope.apps.push({
+//									name: name,
+//									title: title
+//								});
+//							}
+//						};
+//					}])
 				.factory('httpRequestTracker', ['$http', function($http) {
 
 						var httpRequestTracker = {};

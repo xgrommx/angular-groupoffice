@@ -2,11 +2,14 @@
 
 /* Controllers */
 
-angular.module('GO.controllers')
+angular.module('GO.notes.controllers', ['GO.notes'])
 
-				.controller('NotesController', ['$scope', '$state', 'Store','msg', function($scope, $state, Store) {
+				.controller('NotesController', ['$scope', '$state', '$translate', 'Store','msg', function($scope, $state, $translate, Store) {
 
-						$scope.pageTitle = 'Notes';
+						$translate('notes.title').then(function (translation) {
+							$scope.pageTitle = translation;
+						});
+						
 
 						$scope.contentActive = function() {
 							return !$state.is('notes');
@@ -20,16 +23,19 @@ angular.module('GO.controllers')
 											dir: 'DESC'
 										});
 					}]).
-				controller('NoteDetailController', ['Model', '$scope', '$state', '$stateParams','msg', function(Model, $scope, $state, $stateParams, msg) {
+				controller('NoteDetailController', ['Model', '$translate','$scope', '$state', '$stateParams','msg', function(Model, $translate, $scope, $state, $stateParams, msg) {
 						$scope.note = new Model('note', 'notes/note');
 						$scope.note.afterDelete = function(note, result) {
 							$scope.store.reload();
 							$state.go('notes');
 						};
 						
+						var translations;
 						
-						
-						
+						$translate(['Access denied', 'Enter password to decrypt', 'Password required', 'You must enter a password to read this note']).then(function (t) {
+							translations = t;
+							
+						});
 						
 						$scope.loadNote = function(id, params){
 							
@@ -39,7 +45,7 @@ angular.module('GO.controllers')
 							
 							promise.then(function(result){
 								if(result.data.data && result.data.data.note.attributes.encrypted){
-									var prompt =msg.prompt("Enter password to decrypt", "Password required", "password");
+									var prompt =msg.prompt(translations["Enter password to decrypt"], translations["Password required"], "password");
 									
 									prompt.result.then(function(password) {
 										var nextPromise = $scope.loadNote(id, {password: password});
@@ -54,7 +60,7 @@ angular.module('GO.controllers')
 											}
 										});										
 									}, function(reason){
-										msg.alert('You must enter a password to view the note', 'Access denied');
+										msg.alert(translations['You must enter a password to read this note'], translations['Access denied']);
 										$state.go('notes');
 									});											
 

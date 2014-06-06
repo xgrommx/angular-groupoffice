@@ -1,10 +1,15 @@
 'use strict';
 
 
-angular.module('GO').
-				//Register the app e-mail
-				config(['appsProvider', function(appsProvider) {
-						appsProvider.addApp('notes', 'Notes');
+angular.module('GO.notes',['GO']).
+				//Register the app
+				config(['appsProvider', '$translateProvider',function(appsProvider, $translate) {						
+						
+						
+						appsProvider.addApp('notes');
+					
+						
+						
 					}]).
 				
 				config(['$stateProvider', function($stateProvider) {

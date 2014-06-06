@@ -2,27 +2,15 @@
 <div ng-include="'partials/header.html'"></div>
 
 
-<!-- The detail and edit pane is loaded in this view -->
-<div class="go-content" ng-class="{active:contentActive()}">
-	<div ui-view></div>
-</div>
-
-
 <!-- Start of list panel with toolbar -->
-<div ng-class="{inactive:contentActive()}" class="go-list-wrap">
+<div class="go-list-wrap">
 
 	<div class="go-list-toolbar">
-		<ul class="go-toolbar-left">
-			<li>
-				<go-store-search store="store"></go-store-search>				
-			</li>
-		</ul>
 		<ul class="go-toolbar-right">
 			<li>
 				<a ui-sref="notes.edit({noteId: 0})">
 					<span class="glyphicon glyphicon-plus"></span>
 				</a>
-
 			</li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
@@ -35,7 +23,8 @@
 
 	</div>
 
-	<div  class="go-list list-group" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
+	<div class="go-list list-group" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
+
 		<a ui-sref="notes.detail({noteId: note.id})" class="list-group-item" ng-repeat="note in store.items">				
 			<span class="go-list-date">{{note.mtime * 1000| date:'short'}}</span>
 			<h4 class="list-group-item-heading">{{note.name}}</h4>
@@ -44,6 +33,7 @@
 				<i ng-if="note.encrypted" class="fa fa-lock" style="margin-right:10px;"></i>{{note.excerpt}}
 			</p>
 		</a>
+		
 	</div>
 
 

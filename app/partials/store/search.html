@@ -1,0 +1,9 @@
+<div class="input-group">
+	<input type="text" class="form-control" ng-keypress="store.searchListener($event)" ng-model="store.query" placeholder="Search..." />
+
+	<div class="input-group-btn">
+
+		<button class="btn btn-default" ng-click="store.resetSearch();"><i class="glyphicon glyphicon-remove"></i></button>
+		<button class="btn btn-default" ng-click="store.reload();"><i class="glyphicon glyphicon-search"></i></button>
+	</div>
+</div>

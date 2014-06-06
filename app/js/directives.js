@@ -313,5 +313,33 @@ angular.module('GO.directives', []).
 								};
 							}
 						};
-					}]);
+					}])
+				.directive('goStoreSearch', function() {
+					return {
+						restrict: 'E',
+						scope: {
+							store: '=store'
+						},
+						templateUrl: 'partials/store/search.html'
+					};
+				}).directive('autofocus', //autofocus attribute doesn't work dynamically in firefox
+				function($timeout) {
+					return {
+						scope: {
+							trigger: '@focus'
+						},
+						link: function(scope, element) {
+							scope.$watch('trigger', function(value) {
+								
+								console.log(value);
+								
+//								if (value === "true") {
+									$timeout(function() {
+										element[0].focus();
+									});
+//								}
+							});
+						}
+					};
+				});
 

@@ -86,7 +86,7 @@ angular.module('GO.controllers', ['GO'])
 							$scope.toggle = function(){
 								console.log($scope.isCollapsed); 
 								$scope.isCollapsed = !$scope.isCollapsed;
-							}
+							};
 						}]);
 
 

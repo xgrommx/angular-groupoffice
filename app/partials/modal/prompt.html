@@ -1,0 +1,21 @@
+<form ng-submit="ok()">
+<div ng-if="config.title" class="modal-header">
+	<h3 class="modal-title">{{config.title}}</h3>
+</div>
+<div class="modal-body">
+	
+	
+	<div class="form-goup">
+		<label>{{config.text}}</label>
+		<input type="{{config.inputType}}" class="form-control" ng-model="form.input" placeholder="{{config.placeholder}}" required autocomplete="off" autofocus />		
+	</div>
+	
+
+	
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="submit">OK</button>
+	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
+
+</form>

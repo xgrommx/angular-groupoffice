@@ -413,3 +413,16 @@ styling to your application:
 */
 
 .go-toolbar a, .go-list-toolbar a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+
+/* modals */
+
+.go-modal-alert .glyphicon{
+	font-size: 32px;
+	vertical-align: middle;
+	margin-right:6px;
+}
+.go-modal-alert .modal-footer{
+	 margin-top: 0px
+}

@@ -6,18 +6,105 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('GO.services', []).
-				value('version', '0.1').				
-				service('utils', [function() {					
+				value('version', '0.1').
+				service('msg', ['$modal', function($modal) {
+
+						var msg = {
+							modalInstanceCtrl: function($scope, $modalInstance, config) {
+								
+								
+
+								$scope.config = config;
+								
+								$scope.form={input:""};
+
+								$scope.ok = function() {
+									$modalInstance.close($scope.form.input);
+								};
+								
+								$scope.cancel = function () {
+									$modalInstance.dismiss('cancel');
+								};
+							},
+							alert: function(text, title, glyphicon) {
+
+								
+								
+								var config = {
+									text:text,
+									title:title,
+									glyphicon:glyphicon || "warning-sign"
+								};
+
+								return $modal.open({
+									windowClass: 'go-modal-alert',
+									templateUrl: 'partials/modal/alert.html',
+									controller: this.modalInstanceCtrl,
+									size: 'sm',
+									resolve: {
+										config: function() {
+											return config;
+										}
+									}
+								});
+							},
+							
+							/**
+							 * var prompt = msg.prompt("Text here", "Title");
+							 * prompt.result.then(function (input) {
+							 *    console.log(input);
+							 * }, function () {
+							 *    $log.info('Modal dismissed at: ' + new Date());
+							 *  });
+							 * 
+							 * @param {type} text
+							 * @param {type} title
+							 * @param {type} inputType
+							 * @returns {unresolved}
+							 */
+							prompt: function(text, title, inputType) {
+								
+								inputType = inputType || 'text';
+
+								var config = {
+									text:text,
+									title:title,
+									inputType:inputType || "text"
+								};
+								
+								var prompt = $modal.open({
+									windowClass: 'go-modal-alert',
+									templateUrl: 'partials/modal/prompt.html',
+									controller: this.modalInstanceCtrl,
+									size: 'sm',
+									resolve: {										
+										config: function() {
+											return config;
+										}
+									}
+								});
+								
+							
+								
+								
+								return prompt;
+							}
+						};
+
+						return msg;
+
+					}]).
+				service('utils', [function() {
 
 						var utils = function() {
 							this.baseUrl = localStorage.baseUrl;
-							
+
 							//Use sessionStorage from browser so it survives browser reloads						
 							this.securityToken = sessionStorage.securityToken;
 						};
 
 						utils.prototype.setBaseUrl = function(url) {
-							
+
 							//Use localStorage to remember it for the user
 							this.baseUrl = localStorage.baseUrl = url.replace(/^\s+|[\s\/]+$/g, '') + '/';
 						};
@@ -116,21 +203,21 @@ angular.module('GO.services', []).
 
 												this.busy = false;
 												this.init = true;
-												
+
 											}.bind(this));
 						};
-						
+
 						/**
 						 * Query the server for the next page of results
 						 * 
 						 * @returns Store
 						 */
-						
-						Store.prototype.nextPage = function(){			
-							
+
+						Store.prototype.nextPage = function() {
+
 							if (!this.shouldLoad())
 								return false;
-							
+
 							return this.load({
 								start: this.items.length
 							});
@@ -142,9 +229,9 @@ angular.module('GO.services', []).
 						 * @returns Store
 						 */
 						Store.prototype.reload = function() {
-							
+
 							var itemCount = this.items.length;
-							
+
 							this.items = [];
 							this.total = 0;
 							this.init = false;
@@ -164,10 +251,10 @@ angular.module('GO.services', []).
 							this.query = '';
 							this.reload();
 						};
-						
-						
 
-						Store.prototype.searchListener = function($event) {													
+
+
+						Store.prototype.searchListener = function($event) {
 							if ($event.keyCode === 13) {
 								this.reload();
 							}
@@ -176,7 +263,7 @@ angular.module('GO.services', []).
 
 					}])
 
-				.factory('Model', ['$http', '$q', 'utils', function($http, $q, utils) {
+				.factory('Model', ['$http', 'msg', 'utils', function($http, msg, utils) {
 
 
 						var Model = function(modelName, routePrefix) {
@@ -202,7 +289,7 @@ angular.module('GO.services', []).
 												.success(function(result) {
 
 													if (!result.success) {
-														bootbox.alert(result.feedback);
+														msg.alert(result.feedback);
 													} else {
 														this.afterDelete.call(this, [this, result]);
 													}
@@ -225,8 +312,8 @@ angular.module('GO.services', []).
 
 												if (!result.success) {
 
-													for (var i = 0; i < result.errors.length; i++) {														
-														bootbox.alert(result.errors[i]);
+													for (var i = 0; i < result.errors.length; i++) {
+														msg.alert(result.errors[i]);
 													}
 												} else {
 
@@ -238,19 +325,19 @@ angular.module('GO.services', []).
 						};
 
 						Model.prototype.load = function(id, params) {
-							
+
 							params = params || {};
-							
-							if(id)
-								params.id=id;
-							
+
+							if (id)
+								params.id = id;
+
 							var url = id > 0 ? utils.url(this.routePrefix + '/update', params) : utils.url(this.routePrefix + '/create', params);
 
 							return $http.get(url).success(function(result) {
-								if(result.data)
-									this.attributes = result.data[this.modelName].attributes;								
+								if (result.data)
+									this.attributes = result.data[this.modelName].attributes;
 							}.bind(this));
-							
+
 						};
 						return Model;
 

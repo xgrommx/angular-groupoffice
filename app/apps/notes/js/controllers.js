@@ -4,11 +4,11 @@
 
 angular.module('GO.controllers')
 
-				.controller('NotesController', ['$scope', '$state', 'Store', function($scope, $state, Store) {
+				.controller('NotesController', ['$scope', '$state', 'Store','msg', function($scope, $state, Store) {
 
 						$scope.pageTitle = 'Notes';
 
-						$scope.noteActive = function() {
+						$scope.contentActive = function() {
 							return !$state.is('notes');
 						};
 
@@ -20,7 +20,7 @@ angular.module('GO.controllers')
 											dir: 'DESC'
 										});
 					}]).
-				controller('NoteDetailController', ['Model', '$scope', '$state', '$stateParams', function(Model, $scope, $state, $stateParams) {
+				controller('NoteDetailController', ['Model', '$scope', '$state', '$stateParams','msg', function(Model, $scope, $state, $stateParams, msg) {
 						$scope.note = new Model('note', 'notes/note');
 						$scope.note.afterDelete = function(note, result) {
 							$scope.store.reload();
@@ -39,22 +39,24 @@ angular.module('GO.controllers')
 							
 							promise.then(function(result){
 								if(result.data.data && result.data.data.note.attributes.encrypted){
-									bootbox.prompt("Enter password to decrypt", function(password) {
-										if (password === null) {
-											bootbox.alert('Access denied');
-											$state.go('notes');
-										} else {
-											var nextPromise = $scope.loadNote(id, {password: password});
-											
-											nextPromise.then(function(result){
-												if(!result.data.success){
-													bootbox.alert(result.data.feedback, function(){
-														$scope.loadNote(id);
-													});
-												}
-											});
-										}
-									});														
+									var prompt =msg.prompt("Enter password to decrypt", "Password required", "password");
+									
+									prompt.result.then(function(password) {
+										var nextPromise = $scope.loadNote(id, {password: password});
+
+										nextPromise.then(function(result){
+											if(!result.data.success){
+												var alert = msg.alert(result.data.feedback, "Error");
+
+												alert.result.then(function(){
+													$scope.loadNote(id);
+												});
+											}
+										});										
+									}, function(reason){
+										msg.alert('You must enter a password to view the note', 'Access denied');
+										$state.go('notes');
+									});											
 
 								}
 							});

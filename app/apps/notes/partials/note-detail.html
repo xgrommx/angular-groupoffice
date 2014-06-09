@@ -13,7 +13,6 @@
 				<a style="float:left" class="btn btn-default" ui-sref="notes.edit({noteId: note.attributes.id})">
 					<span class="glyphicon glyphicon-edit"></span> {{'Edit' | t}}
 				</a>
-
 			</li>
 		</ul>
 		<ul class="go-toolbar-right">
@@ -28,4 +27,11 @@
 	<h1>{{note.attributes.name}}</h1>
 
 	<pre>{{note.attributes.content}}</pre>			
+	
+	<div ng-repeat="category in note.customfields.categories">
+		<h2>{{category.name}}</h2>		
+		<div ng-repeat="field in category.fields">			
+			<div>{{field.name}}: {{note.attributes[field.dataname]}}</div>
+		</div>
+	</div>
 

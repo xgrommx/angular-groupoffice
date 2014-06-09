@@ -292,6 +292,8 @@ angular.module('GO.services', []).
 							this.routePrefix = routePrefix;
 
 							this.attributes = null;
+							
+							this.customfields = null;
 						};
 
 
@@ -359,6 +361,8 @@ angular.module('GO.services', []).
 							return $http.get(url).success(function(result) {
 								if (result.data)
 									this.attributes = result.data[this.modelName].attributes;
+								
+									this.customfields = result.data[this.modelName].customfields;
 							}.bind(this));
 
 						};

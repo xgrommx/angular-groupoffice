@@ -220,8 +220,11 @@ textarea.form-control{
 	display:block;
 }
 
-
 .go-list-wrap{
+	
+}
+
+.go-list-wrap-fixed{
 	position:fixed;
 	top:30px;
 	right:0px;
@@ -299,6 +302,12 @@ textarea.form-control{
 }
 
 
+.go-toolbar-title{
+	font-size:18px;
+	margin-left: 14px;
+   margin-top: 12px;
+}
+
 .go-list-toolbar{
 	position:absolute;
 	height:50px;
@@ -328,7 +337,8 @@ textarea.form-control{
 
 .go-toolbar ul > li, .go-list-toolbar > ul > li{
 	float: left;
-	line-height: 20px;	
+/*	line-height: 20px;	*/
+	vertical-align:middle;
 }
 
 .go-toolbar ul > li{
@@ -426,3 +436,32 @@ styling to your application:
 .go-modal-alert .modal-footer{
 	 margin-top: 0px
 }
+
+
+
+.go-side-nav{
+
+	position:fixed;
+	
+	top:30px;
+	bottom:0px;
+	left:-400px;
+	width:400px;
+	
+	background-color: #F8F8F8;
+	border-right: 1px solid #E7E7E7;
+	
+	z-index:2000;
+	
+	-webkit-transition: all .25s ease-out;
+      -moz-transition: all .25s ease-out;
+           transition: all .25s ease-out;
+	
+   
+}
+
+.go-side-nav.active{
+	left:0px;
+	
+}
+

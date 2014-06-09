@@ -1,20 +1,19 @@
-<div ng-include="'partials/header.html'"></div>
 
 
 <form>	
-	<div class="go-list-wrap go-list-fullscreen">
+	<div class="go-list-wrap">
 
-		<div class="go-toolbar">
+<!--		<div class="go-toolbar">
 			<div class="go-toolbar-container">
 			<ul class="go-toolbar-left">
 				<li>
 					<a class="btn btn-default" ui-sref="notes">
-						<span class="glyphicon glyphicon-step-backward"></span> Back
+						<span class="glyphicon glyphicon-step-backward"></span> {{'Back' | t}}
 					</a>
 				</li>
 			</ul>
 			</div>
-		</div>
+		</div>-->
 		<ul  class="go-list list-group" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
 			<li class="list-group-item" ng-repeat="category in store.items">
 				<label><input type="checkbox" ng-model="category.checked" ng-change="saveCategory(category);"> {{category.name}}</label>

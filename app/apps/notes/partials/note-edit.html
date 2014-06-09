@@ -15,23 +15,37 @@
 		</div>
 	</div>
 	
-
-	<div class="form-group">
-		<label for="name">Name</label>
-		<input type="text" id="name" class="form-control" ng-model="note.attributes.name" required />
-	</div>
 	
-	<div class="form-group">
-		<label for="category_id">Category</label>
-		<div>
-		<input style="width:100%" id="category_id" go-select go-model="category" go-module="notes" ng-model="note.attributes.category_id">
-		</div>
-	</div>
-		
+	<fieldset>
+    <legend>{{"Properties" | t}}</legend>
 
-	<div class="form-group">
-		<label for="content">Content</label>
-		<textarea id="content" class="form-control" ng-model="note.attributes.content"></textarea>
-	</div>
+		<div class="form-group">
+			<label for="name">{{"Name" | t}}</label>
+			<input type="text" id="name" class="form-control" ng-model="note.attributes.name" required autofocus />
+		</div>
+
+		<div class="form-group">
+			<label for="category_id">{{"Category" | t}}</label>
+			<div>
+			<input style="width:100%" id="category_id" go-select go-model="category" go-module="notes" ng-model="note.attributes.category_id">
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<label for="content">Content</label>
+			<textarea id="content" class="form-control" ng-model="note.attributes.content"></textarea>
+		</div>		
+	</fieldset>	
+		
+	<fieldset ng-repeat="category in note.customfields.categories">
+    <legend>{{category.name}}</legend>
+		<div ng-repeat="field in category.fields">			
+			<div class="form-group">
+				<label for="cf_{{field.dataname}}">{{field.name}}</label>
+				<input type="text" id="cf_{{field.dataname}}" class="form-control" ng-model="note.attributes[field.dataname]" />
+			</div>			
+		</div>
+	</fieldset>
 
 </form>

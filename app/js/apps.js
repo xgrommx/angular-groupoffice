@@ -2,8 +2,8 @@ angular.module('GO.apps', []).provider('apps', [function AppsProvider() {
 
 		var apps = [];
 
-		this.addApp = function(id) {
-			var app = {id: id};
+		this.addApp = function(id, title) {
+			var app = {id: id, title: title};
 
 			apps.push(app);
 		};

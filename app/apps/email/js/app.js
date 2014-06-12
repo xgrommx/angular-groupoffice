@@ -14,7 +14,17 @@ angular.module('GO').
 						$stateProvider
 										.state('email', {
 											url: "/apps/email",
-											templateUrl: 'apps/email/partials/main.html',
+											templateUrl: 'apps/email/partials/accounts.html',
+											controller: 'AccountController'
+										})
+										.state('messages', {
+											url: "/apps/email/messages/{accountId:[0-9]*}/{mailbox:[^/]*}",
+											templateUrl: 'apps/email/partials/messages.html',
 											controller: 'EmailController'
+										})
+										.state('messages.message', {
+											url: "/{uid:[0-9]*}",
+											templateUrl: 'apps/email/partials/message-view.html',
+											controller: 'MessageController'
 										});
 					}]);

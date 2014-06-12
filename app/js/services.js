@@ -5,8 +5,7 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-angular.module('GO.services', []).
-				value('version', '0.1').
+angular.module('GO.services').
 				service('msg', ['$modal', function($modal) {
 
 						var msg = {
@@ -282,90 +281,6 @@ angular.module('GO.services', []).
 						};
 						return Store;
 
-					}])
-
-				.factory('Model', ['$http', 'msg', 'utils', 'translate', function($http, msg, utils, translate) {
-
-
-						var Model = function(modelName, routePrefix) {
-							this.modelName = modelName;
-							this.routePrefix = routePrefix;
-
-							this.attributes = null;
-							
-							this.customfields = null;
-						};
-
-
-						Model.prototype.afterSave = function(model, result) {
-						};
-
-						Model.prototype.afterDelete = function(model, result) {
-						};
-
-
-						Model.prototype.delete = function(name) {
-							var confirm = msg.confirm(translate.t("Are you sure you want to delete '{name}'?").replace('{name}',name));
-
-							confirm.result.then(function(){
-
-									var url = utils.url(this.routePrefix + '/delete', {id: this.attributes.id});
-									return $http.post(url)
-													.success(function(result) {
-
-														if (!result.success) {
-															msg.alert(result.feedback);
-														} else {
-															this.afterDelete.call(this, [this, result]);
-														}
-													}.bind(this));
-								}.bind(this));
-							};
-						
-
-
-						Model.prototype.save = function() {
-
-							var url = this.attributes.id > 0 ? utils.url(this.routePrefix + '/update', {id: this.attributes.id}) : utils.url(this.routePrefix + '/create');
-
-							var params = {};
-
-							params[this.modelName] = this.attributes;
-
-							return $http.post(url, params)
-											.success(function(result) {
-
-												if (!result.success) {
-
-													for (var i = 0; i < result.errors.length; i++) {
-														msg.alert(result.errors[i]);
-													}
-												} else {
-
-													this.attributes.id = result.id;
-
-													this.afterSave.call(this, [this, result]);
-												}
-											}.bind(this));
-						};
-
-						Model.prototype.load = function(id, params) {
-
-							params = params || {};
-
-							if (id)
-								params.id = id;
-
-							var url = id > 0 ? utils.url(this.routePrefix + '/update', params) : utils.url(this.routePrefix + '/create', params);
-
-							return $http.get(url).success(function(result) {
-								if (result.data)
-									this.attributes = result.data[this.modelName].attributes;
-								
-									this.customfields = result.data[this.modelName].customfields;
-							}.bind(this));
-
-						};
-						return Model;
-
 					}]);
+
+				

@@ -1,0 +1,76 @@
+
+<div ng-include="'partials/header.html'"></div>
+
+
+<!-- The detail and edit pane is loaded in this view -->
+<div class="go-content" ng-class="{active:contentActive()}">
+	<div ui-view></div>
+</div>
+
+<!-- Start of list panel with toolbar -->
+<div ng-class="{inactive:contentActive()}" class="go-list-wrap go-list-wrap-fixed">
+
+	<div class="go-list-toolbar">
+		<ul class="go-toolbar-left">
+			<li>
+				<go-store-search store="store"></go-store-search>				
+			</li>
+		</ul>
+		<ul class="go-toolbar-right">
+			<li>
+				<a ui-sref="email.edit({emailId: 0})">
+					<span class="glyphicon glyphicon-plus"></span>
+				</a>
+
+			</li>
+			<li>
+			<a ng-click="sideNavActive=!sideNavActive;"><i class="fa fa-bars"></i></a>
+			</li>
+<!--			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a ui-sref="categories">Enabled categories</a></li>            
+					<li><a ng-click="store.multiselect();TODO">Enable checkboxes</a></li>
+				</ul>
+			</li>-->
+		</ul>
+
+	</div>
+
+
+		
+	
+	<div  class="go-list list-group" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
+		<a ui-sref="messages.message({uid: email.uid, mailbox: mailbox, accountId: account_id})" class="list-group-item" ng-repeat="email in store.items">				
+			<span class="go-list-date">{{email.udate * 1000| date:'short'}}</span>
+			<h4 class="list-group-item-heading">{{email.from}}</h4>
+
+			<p class="list-group-item-text">
+				{{email.subject}}
+			</p>
+		</a>
+		
+		<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..." | t}}</div>
+	</div>
+		
+		
+
+</div>
+
+<div class="go-side-nav" ng-class="{active:sideNavActive}">
+	<div class="go-list-toolbar">
+		<ul class="go-toolbar-left">
+			<li>
+				<div class="go-toolbar-title">Settings</div>
+			</li>
+		</ul>
+		<ul class="go-toolbar-right">			
+			<li>
+			<a ng-click="sideNavActive=!sideNavActive;"><span class="glyphicon glyphicon-remove"></span></a>
+			</li>
+		</ul>
+
+	</div>	
+	<div ng-controller="CategoryController" ng-include src="sideNavActive ? 'apps/email/partials/categories.html' : ''"></div>	
+</div>
+

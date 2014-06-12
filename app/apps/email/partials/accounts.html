@@ -1,0 +1,16 @@
+
+<div ng-include="'partials/header.html'"></div>
+
+
+<!-- Start of list panel with toolbar -->
+<div class="go-list-wrap">
+	<div  class="go-list list-group" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
+		<a ui-sref="messages({accountId: account.id, mailbox: 'INBOX'})" class="list-group-item" ng-repeat="account in store.items">				
+			{{account.email}}
+		</a>
+		
+		<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..." | t}}</div>
+	</div>
+</div>
+
+

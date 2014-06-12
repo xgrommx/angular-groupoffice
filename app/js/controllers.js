@@ -3,7 +3,7 @@
 
 /* Controllers */
 
-angular.module('GO.controllers', ['GO'])
+angular.module('GO.controllers')
 
 
 				.controller('LoginController', ['$scope', '$http', '$state', 'utils', 'msg', function($scope, $http, $state, utils, msg) {

@@ -49,6 +49,8 @@
 				<i ng-if="note.encrypted" class="fa fa-lock" style="margin-right:10px;"></i>{{note.excerpt}}
 			</p>
 		</a>
+		
+		<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..." | t}}</div>
 	</div>
 		
 		

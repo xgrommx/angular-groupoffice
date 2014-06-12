@@ -1,0 +1,33 @@
+
+<div class="go-toolbar">
+	<div class="go-toolbar-container">
+		<ul class="go-toolbar-left">
+
+			<li class="visible-xs" style="float:left">
+				<a class="btn btn-default" ui-sref="^">				
+					<span class="glyphicon glyphicon-step-backward"></span> {{'Back' | t}}
+				</a>
+			</li>
+
+			<li>
+				<a style="float:left" class="btn btn-default" ui-sref="messages.edit({messageId: message.attributes.id})">
+					<span class="glyphicon glyphicon-edit"></span> {{'Edit' | t}}
+				</a>
+			</li>
+		</ul>
+		<ul class="go-toolbar-right">
+			<li>
+				<a class="btn btn-danger" style="float:right;" ng-click="message.delete(message.attributes.name);">
+					<span class="glyphicon glyphicon-trash"></span> {{'Delete' | t}}
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<h1>{{message.attributes.subject}}</h1>
+	<h2>{{message.attributes.from}}</h2>
+
+	<div ng-bind-html='message.attributes.htmlbody'></div>			
+	
+
+

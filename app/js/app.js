@@ -51,3 +51,10 @@ GO.value('version', '1.0');
 GO.config(['translateProvider', function(translateProvider) {
 		translateProvider.setLanguage('nl');
 	}]);
+
+
+
+angular.module('GO.services', []);
+angular.module('GO.directives', []);
+angular.module('GO.filters', []);
+angular.module('GO.controllers', []);

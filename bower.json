@@ -1,8 +1,8 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "angular-groupoffice",
+  "description": "An AngularJS client for GroupOffice",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/mschering/angular-groupoffice",
   "license": "MIT",
   "private": true,
   "dependencies": {

@@ -2,7 +2,7 @@
   "name": "angular-groupoffice",
   "private": true,
   "version": "1.0.0",
-  "description": "An AngularJS client for Group-Office",
+  "description": "An AngularJS client for GroupOffice",
   "repository": "https://github.com/mschering/angular-groupoffice",
   "license": "LGPL",
   "devDependencies": {

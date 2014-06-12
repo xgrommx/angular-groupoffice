@@ -1,10 +1,4 @@
-module.exports = function (grunt) {
-	
-	grunt.initConfig({
-        
-    });
- 
-    
+module.exports = function (grunt) {    
  
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),

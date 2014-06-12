@@ -14,11 +14,13 @@
 	<!-- build:css css/angular-groupoffice.min.css -->
 	
 	
-	
 	<link href="../bower_components/select2/select2.css" rel="stylesheet">
-	<link href="css/select2-bootstrap.css" rel="stylesheet">
-
-	<link rel="stylesheet" href="css/app.css"/>
+	
+	<!-- fileblock:css styles -->
+	<link href="../app/css/app.css" rel="stylesheet" />
+	<link href="../app/css/select2-bootstrap.css" rel="stylesheet" />
+	<!-- endfileblock -->
+	
 	<!-- endbuild -->
 	
 </head>
@@ -33,13 +35,6 @@
 	<div class="go-loadmask-msg"><i class="fa fa-spinner go-rotate"></i> Loading...</div>
 </div>-->
 
-	
-<!--<div class="container ">-->
-
-<!--	<div class="go-alerts">
-		<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{ alert.msg }}</alert>
-	</div>-->
-
 	<div ui-view></div>
 <!--</div>-->
 
@@ -52,7 +47,7 @@
 	<script src="../bower_components/jquery/dist/jquery.js"></script>
 	<script src="../bower_components/select2/select2.js"></script>
 	
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
 	
   <script src="../bower_components/angular/angular.js"></script>
 	

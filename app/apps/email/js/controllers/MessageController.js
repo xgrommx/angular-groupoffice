@@ -6,17 +6,20 @@ angular.module('GO.email.controllers')
 						$scope.message.baseParams = {account_id:$stateParams.accountId, mailbox: $stateParams.mailbox};
 						
 						
-						$scope.message.afterDelete = function(note, result) {
-							$scope.store.reload();
+						$scope.message.afterDelete = function(message, result) {
+							$scope.store.remove($scope.store.findIndexByAttribute("uid", $scope.message.attributes.uid));
 							$state.go('messages');
 						};						
 
-						$scope.toggleSeen = function(){
+						$scope.toggleFlag = function(flag){
 							
 							//set the seen flag (mark as read). When done then update the store of the list
-							$scope.message.toggleSeen().then(function(data){								
+							$scope.message.toggleFlag(flag).then(function(data){								
 								var storeMessage = $scope.store.findSingleByAttribute("uid", $scope.message.attributes.uid);
-								storeMessage.seen = $scope.message.attributes.seen;
+								
+								
+								storeMessage[flag] = $scope.message.attributes[flag];
+								console.log(storeMessage);
 							});
 						};
 						

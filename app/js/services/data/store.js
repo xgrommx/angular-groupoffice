@@ -112,21 +112,34 @@ angular.module('GO.services')
 						};
 						
 						
+						store.prototype.remove = function(index){
+							return this.items.splice(index, 1);
+						};
 						
-						store.prototype.findSingleByAttribute = function(attr, id){
+						
+						store.prototype.findIndexByAttribute = function(attr, id){
 							
-							for(var i=0;i<this.items.length;i++){
-								
-//								console.log(this.items[i]);
+							for(var i=0;i<this.items.length;i++){							
 								if(this.items[i][attr] == id){
-									return this.items[i];
+									return i;
 								}
 							};
 							
-							return false;
-							
-						};
+							return false;							
+						};					
 						
+						
+						store.prototype.findSingleByAttribute = function(attr, id){
+							
+							var i = this.findIndexByAttribute(attr, id);
+							
+							if(i===false){
+								return false;
+							}else
+							{
+								return this.items[i];
+							}							
+						};					
 						
 						return store;
 

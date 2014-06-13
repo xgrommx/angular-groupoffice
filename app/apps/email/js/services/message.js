@@ -1,21 +1,23 @@
 angular.module('GO.email.services')
 				.factory('message',["$sce","$http", "utils", "model", function($sce, $http, utils, model) {
 
-					model.prototype.toggleSeen = function() {
+					model.prototype.toggleFlag = function(flag) {
 				
 						var params = this.getBaseParams();
 						
-						params.flag="Seen";
-						params.clear = this.attributes.seen;
+						params.flag=flag;
+						params.clear = this.attributes[flag];
 						params.messages = angular.toJson([this.attributes.uid]);					
 						
 						var url = utils.url(this.routePrefix+"/setFlag", params);
 						
 						return $http.get(url).success(function(result) {								
-								this.attributes.seen=!this.attributes.seen;
+								this.attributes[flag]=!this.attributes[flag];
 								
 							}.bind(this));
 					};
+					
+				
 					
 					model.prototype.init = function(){
 						

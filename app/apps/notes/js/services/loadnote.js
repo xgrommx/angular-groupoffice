@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('GO.notes.services', ['GO.notes'])
+angular.module('GO.notes.services')
 				.service('loadNote',['$state','translate', 'msg', function($state, translate, msg){
 					var loadNote = function($scope, id, params){
 							

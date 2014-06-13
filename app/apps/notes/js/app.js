@@ -3,7 +3,7 @@
 
 angular.module('GO.notes',['GO']).
 				//Register the app
-				config(['appsProvider', 'translateProvider',function(appsProvider) {												
+				config(['appsProvider',function(appsProvider) {												
 						appsProvider.addApp('notes', 'Notes');
 					}]).
 				
@@ -33,3 +33,6 @@ angular.module('GO.notes',['GO']).
 											controller: 'CategoryController'
 										});
 					}]);
+				
+angular.module('GO.notes.services', ['GO.notes']);
+angular.module('GO.notes.controllers', ['GO.notes']);

@@ -1,9 +1,9 @@
 'use strict';
 
 
-angular.module('GO').
+angular.module('GO.email',['GO']).
 				//Register the app e-mail
-				config(['appsProvider', function(appsProvider) {
+				config(['appsProvider',function(appsProvider) {												
 						appsProvider.addApp('email', 'E-mail');
 					}]).
 				
@@ -28,3 +28,6 @@ angular.module('GO').
 											controller: 'MessageController'
 										});
 					}]);
+				
+angular.module('GO.email.services', ['GO.notes']);
+angular.module('GO.email.controllers', ['GO.notes']);

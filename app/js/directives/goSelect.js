@@ -1,57 +1,8 @@
 'use strict';
 
-/* Directives */
 
-
-angular.module('GO.directives').
-				directive('appVersion', ['version', function(version) {
-						return function(scope, elm, attrs) {
-							elm.text(version);
-						};
-					}]).
-				directive('goInfiniteScroll', ['$timeout', function($timeout) {
-						return{
-							scope: {
-								goInfiniteScroll: '&',
-								goInfiniteScrollDisabled: '='
-							},
-							link: function(scope, element, attr) {
-								var
-												lengthThreshold = attr.scrollThreshold || 50,
-												timeThreshold = attr.timeThreshold || 400;
-
-								lengthThreshold = parseInt(lengthThreshold, 10);
-								timeThreshold = parseInt(timeThreshold, 10);
-
-
-								var scrollEnabled = true;
-
-								scope.$watch('goInfiniteScrollDisabled', function(v) {
-									scrollEnabled = !v;
-								});
-
-								var checker = function() {
-
-									if (!scrollEnabled) {
-										return $timeout(checker, timeThreshold);
-									}
-
-									var remaining = element[0].scrollHeight - (element[0].clientHeight + element[0].scrollTop);
-
-									if (remaining < lengthThreshold) {
-										scope.goInfiniteScroll();
-										$timeout(checker, timeThreshold);
-									}
-								};
-
-								checker();
-
-
-								element.bind('scroll', checker);
-							}
-
-						};
-					}])
+angular.module('GO.directives')
+				
 				.directive('goSelect', ['$timeout','Store','Model', function($timeout, Store, Model) {
 						var options = {};
 						
@@ -313,28 +264,5 @@ angular.module('GO.directives').
 								};
 							}
 						};
-					}])
-				.directive('goStoreSearch', function() {
-					return {
-						restrict: 'E',
-						scope: {
-							store: '=store'
-						},
-						templateUrl: 'partials/store/search.html'
-					};
-				}).directive('autofocus', //autofocus attribute doesn't work dynamically in firefox
-				function($timeout) {
-					return {
-						scope: {
-							trigger: '@focus'
-						},
-						link: function(scope, element) {
-							scope.$watch('trigger', function(value) {								
-									$timeout(function() {
-										element[0].focus();
-									});
-							});
-						}
-					};
-				});
+					}]);
 

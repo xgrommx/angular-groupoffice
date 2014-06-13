@@ -40,14 +40,28 @@
 
 		
 	
-	<div  class="go-list list-group" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
-		<a ui-sref="messages.message({uid: email.uid, mailbox: mailbox, accountId: account_id})" class="list-group-item" ng-repeat="email in store.items">				
-			<span class="go-list-date">{{email.udate * 1000| date:'short'}}</span>
-			<h4 class="list-group-item-heading">{{email.from}}</h4>
+	<div  class="go-list list-group em-list" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
+		<a ng-class="{seen:email.seen}" ui-sref="messages.message({uid: email.uid, mailbox: mailbox, accountId: account_id})" class="list-group-item" ng-repeat="email in store.items">
+			
+	
+				<div class="unseen-icon" ng-if="!email.seen"></div>
+	
+		
+				<span class="go-list-date">{{email.udate * 1000| date:'short'}}</span>
 
-			<p class="list-group-item-text">
-				{{email.subject}}
-			</p>
+				<span class="em-list-icons">
+					<i ng-if="email.has_attachments" class="fa fa-paperclip"></i>
+					<i ng-if="email.flagged" class="fa fa-flag"></i>
+					<i ng-if="email.answered" class="fa fa-mail-reply"></i>
+					<i ng-if="email.forwarded" class="fa fa-mail-forward"></i>
+				</span>
+
+				<h4 class="list-group-item-heading">{{email.from}}</h4>
+
+				<p class="list-group-item-text">
+					{{email.subject}}
+				</p>
+		
 		</a>
 		
 		<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..." | t}}</div>

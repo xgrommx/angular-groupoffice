@@ -1,0 +1,18 @@
+.em-list-icons {
+  float: right;
+  padding-right: 5px; }
+
+.em-list .seen {
+  background-color: #f1f1f1; }
+
+.em-list .list-group-item {
+  padding-left: 40px; }
+.em-list .unseen-icon {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #009CC5;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  margin-top: -5px; }

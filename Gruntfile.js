@@ -84,16 +84,31 @@ module.exports = function (grunt) {
 						src: 'app/index.html',
 						blocks: {
 								'styles': { src: 'app/css/**/*.css' },
+								
+								'appsstyles': { src: 'app/apps/**/*.css' },
 								'core': { src: 'app/js/**/*.js' },
 								'apps': { src: 'app/apps/**/*.js' }
 						}
 					}
         },
+				
+				sass: {
+					dev: {
+						files: [{
+							'app/css/app.css': 'app/scss/app.scss',
+							'app/apps/email/css/app.css': 'app/apps/email/scss/app.scss',
+						}]
+					}
+				},
 				watch: {
             blocks: {
                 files: ['app/**/*.js'],
                 tasks: ['fileblocks:dev']
-            }
+            },
+						sass: {
+							files: ['app/**/*.scss'],
+							tasks: 'sass'
+						}
         }
     });
  
@@ -111,6 +126,7 @@ module.exports = function (grunt) {
 		grunt.loadNpmTasks('grunt-ngmin');
 		
 		grunt.loadNpmTasks('grunt-file-blocks');
+		grunt.loadNpmTasks('grunt-contrib-sass');
  
     // Tell Grunt what to do when we type "grunt" into the terminal
     grunt.registerTask('default', [

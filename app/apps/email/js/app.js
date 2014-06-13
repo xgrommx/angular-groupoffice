@@ -29,5 +29,5 @@ angular.module('GO.email',['GO']).
 										});
 					}]);
 				
-angular.module('GO.email.services', ['GO.notes']);
-angular.module('GO.email.controllers', ['GO.notes']);
+angular.module('GO.email.services', ['GO.email']);
+angular.module('GO.email.controllers', ['GO.email']);

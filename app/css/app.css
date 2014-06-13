@@ -224,6 +224,10 @@ textarea.form-control {
   background-color: #F8F8F8;
   border-bottom: 1px solid #e7e7e7;
   border-right: 1px solid #e7e7e7; }
+.go-toolbar .go-icon-buttton > a {
+  color: #333333;
+  display: block;
+  padding: 10px 10px; }
 
 .go-toolbar-title {
   font-size: 18px;
@@ -251,12 +255,12 @@ textarea.form-control {
 .go-toolbar-right {
   float: right; }
 
-.go-toolbar ul > li, .go-list-toolbar > ul > li {
+.go-toolbar > ul > li, .go-list-toolbar > ul > li {
   float: left;
   /*	line-height: 20px;	*/
   vertical-align: middle; }
 
-.go-toolbar ul > li {
+.go-toolbar > ul > li {
   padding-right: 6px; }
 
 .go-list-toolbar > ul > li > a {

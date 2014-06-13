@@ -305,6 +305,14 @@ textarea.form-control{
 	 border-bottom: 1px solid #e7e7e7;
 	 border-right: 1px solid #e7e7e7;
  }
+ 
+  .go-icon-buttton{
+		> a {
+			color: #333333;
+			display: block;
+			padding: 10px 10px;
+		}
+	}
 }
 
 
@@ -341,13 +349,13 @@ textarea.form-control{
 	float:right;
 }
 
-.go-toolbar ul > li, .go-list-toolbar > ul > li{
+.go-toolbar > ul > li, .go-list-toolbar > ul > li{
 	float: left;
 /*	line-height: 20px;	*/
 	vertical-align:middle;
 }
 
-.go-toolbar ul > li{
+.go-toolbar > ul > li{
 	padding-right: 6px;
 }
 

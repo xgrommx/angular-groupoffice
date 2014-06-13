@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('GO.services')
-	.factory('Model', ['$http', 'msg', 'utils', 'translate', function($http, msg, utils, translate) {
+	.factory('model', ['$http', 'msg', 'utils', 'translate', function($http, msg, utils, translate) {
 
 
-						var Model = function(modelName, routePrefix) {
+						var model = function(modelName, routePrefix) {
 							this.modelName = modelName;
 							this.routePrefix = routePrefix;
 
@@ -19,19 +19,23 @@ angular.module('GO.services')
 							this.idAttribute = 'id';							
 							
 							this.baseParams = {};
-						};
-
-
-						Model.prototype.afterSave = function(model, result) {
-						};
-
-						Model.prototype.afterDelete = function(model, result) {
+							
+							this.init();
 						};
 						
-						Model.prototype.afterLoad = function(model, result) {
+						model.prototype.init = function(){};
+
+
+						model.prototype.afterSave = function(model, result) {
+						};
+
+						model.prototype.afterDelete = function(model, result) {
 						};
 						
-						Model.prototype.getBaseParams = function(){
+						model.prototype.afterLoad = function(model, result) {
+						};
+						
+						model.prototype.getBaseParams = function(){
 							var params = angular.copy(this.baseParams);
 							
 							if(this.attributes && this.attributes[this.idAttribute]){
@@ -42,7 +46,7 @@ angular.module('GO.services')
 						};
 
 
-						Model.prototype.delete = function(name) {
+						model.prototype.delete = function(name) {
 							var confirm = msg.confirm(translate.t("Are you sure you want to delete '{name}'?").replace('{name}',name));
 
 							confirm.result.then(function(){
@@ -64,7 +68,7 @@ angular.module('GO.services')
 						
 
 
-						Model.prototype.save = function() {
+						model.prototype.save = function() {
 
 							var url = this.attributes[this.idAttribute] > 0 ? utils.url(this.routePrefix + '/'+this.updateAction, this.getBaseParams()) : utils.url(this.routePrefix + '/'+this.loadAction);
 
@@ -89,7 +93,7 @@ angular.module('GO.services')
 											}.bind(this));
 						};
 
-						Model.prototype.load = function(id, params) {
+						model.prototype.load = function(id, params) {
 
 							params = this.getBaseParams();	
 
@@ -108,6 +112,6 @@ angular.module('GO.services')
 							}.bind(this));
 
 						};
-						return Model;
+						return model;
 
 					}]);

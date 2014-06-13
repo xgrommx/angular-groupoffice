@@ -16,3 +16,23 @@
   left: 15px;
   top: 50%;
   margin-top: -5px; }
+
+.em-headers .em-header {
+  border-bottom: 1px solid #E7E7E7;
+  padding: 8px 0; }
+.em-headers h1 {
+  color: black;
+  font-size: 1.5em; }
+
+.em-attachments {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E7E7E7;
+  margin-bottom: 10px; }
+  .em-attachments a {
+    display: block;
+    float: left;
+    border: 1px solid #E7E7E7;
+    background-color: #f1f1f1;
+    padding: 8px;
+    border-radius: 4px;
+    margin-right: 8px; }

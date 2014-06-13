@@ -651,7 +651,7 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
  * @description
  * Creates a slide inside a {@link ui.bootstrap.carousel.directive:carousel carousel}.  Must be placed as a child of a carousel element.
  *
- * @param {boolean=} active Model binding, whether or not this slide is currently active.
+ * @param {boolean=} active model binding, whether or not this slide is currently active.
  *
  * @example
 <example module="ui.bootstrap">

@@ -8,11 +8,15 @@
 					<span class="glyphicon glyphicon-step-backward"></span> {{'Back' | t}}
 				</a>
 			</li>
-
-			<li>
-				<a style="float:left" class="btn btn-default" ui-sref="messages.edit({messageId: message.attributes.id})">
-					<span class="glyphicon glyphicon-edit"></span> {{'Edit' | t}}
-				</a>
+			<li class="dropdown go-icon-buttton" >
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-flag"></i></a>
+				<ul class="dropdown-menu ">
+					<li><a ng-click="toggleSeen()">
+							<span ng-if="!message.attributes.seen">{{"Mark as read" | t}}</span>
+							<span ng-if="message.attributes.seen">{{"Mark as unread" | t}}</span>
+						</a>
+					</li>            
+				</ul>
 			</li>
 		</ul>
 		<ul class="go-toolbar-right">
@@ -23,9 +27,23 @@
 			</li>
 		</ul>
 	</div>
+	
+	<div class="em-headers">
+		<div class="em-header">{{"From" | t}}: {{message.attributes.from}}</div>		
+		<div class="em-header">{{"To" | t}}: <span ng-repeat="address in message.attributes.to">{{address.personal}}</span></div>
 
-	<h1>{{message.attributes.subject}}</h1>
-	<h2>{{message.attributes.from}}</h2>
+
+		<h1 class="em-header">{{message.attributes.subject}}</h1 class="em-header">
+	</div>
+	
+	<div ng-if="message.attributes.attachments.length" class="em-attachments">
+		
+		<a ng-repeat="attachment in message.attributes.attachments" href="{{attachment.url}}" target="_blank">
+			{{attachment.name}} ({{attachment.size | bytes}})
+		</a>				 
+		
+		<div style="clear:both"></div>
+	</div>
 
 	<div ng-bind-html='message.attributes.htmlbody'></div>			
 	

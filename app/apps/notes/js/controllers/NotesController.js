@@ -2,7 +2,7 @@
 
 angular.module('GO.notes.controllers')
 
-				.controller('NotesController', ['$scope', '$state', 'translate', 'Store','msg', function($scope, $state, translate, Store) {
+				.controller('NotesController', ['$scope', '$state', 'translate', 'store','msg', function($scope, $state, translate, store) {
 
 						$scope.pageTitle = translate.t('Notes');
 						
@@ -11,7 +11,7 @@ angular.module('GO.notes.controllers')
 							return !$state.is('notes');
 						};
 
-						$scope.store = new Store('notes/note/store',
+						$scope.store = new store('notes/note/store',
 										{
 											limit: 10,
 											excerpt: true,

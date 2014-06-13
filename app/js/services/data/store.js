@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('GO.services')
-	.factory('Store', ['$http', 'utils', function($http, utils) {
+	.factory('store', ['$http', 'utils', function($http, utils) {
 
-						var Store = function(url, loadParams) {
+						var store = function(url, loadParams) {
 							this.items = [];
 							this.busy = false;
 							this.total = 0;
@@ -23,7 +23,7 @@ angular.module('GO.services')
 						 * @param object params
 						 * @returns array
 						 */
-						Store.prototype.load = function(params) {
+						store.prototype.load = function(params) {
 
 							this.busy = true;
 
@@ -61,10 +61,10 @@ angular.module('GO.services')
 						/**
 						 * Query the server for the next page of results
 						 * 
-						 * @returns Store
+						 * @returns store
 						 */
 
-						Store.prototype.nextPage = function() {
+						store.prototype.nextPage = function() {
 
 							if (!this.shouldLoad())
 								return false;
@@ -77,9 +77,9 @@ angular.module('GO.services')
 						/**
 						 * Reload the store with current parameters
 						 * 
-						 * @returns Store
+						 * @returns store
 						 */
-						Store.prototype.reload = function() {
+						store.prototype.reload = function() {
 
 							var itemCount = this.items.length;
 
@@ -92,24 +92,42 @@ angular.module('GO.services')
 						};
 
 
-						Store.prototype.shouldLoad = function() {
+						store.prototype.shouldLoad = function() {
 							var ret = !this.busy && (!this.init || this.items.length < this.total);
 
 							return ret;
 						};
 
-						Store.prototype.resetSearch = function() {
+						store.prototype.resetSearch = function() {
 							this.query = '';
 							this.reload();
 						};
 
 
 
-						Store.prototype.searchListener = function($event) {
+						store.prototype.searchListener = function($event) {
 							if ($event.keyCode === 13) {
 								this.reload();
 							}
 						};
-						return Store;
+						
+						
+						
+						store.prototype.findSingleByAttribute = function(attr, id){
+							
+							for(var i=0;i<this.items.length;i++){
+								
+//								console.log(this.items[i]);
+								if(this.items[i][attr] == id){
+									return this.items[i];
+								}
+							};
+							
+							return false;
+							
+						};
+						
+						
+						return store;
 
 					}]);

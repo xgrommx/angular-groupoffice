@@ -19,7 +19,8 @@ var GO = angular.module('GO', [
 	'GO.notes.services',
 	
 	'GO.email',
-	'GO.email.controllers'
+	'GO.email.controllers',
+	'GO.email.services'
 ]).
 				config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 						// For any unmatched url, redirect to /state1

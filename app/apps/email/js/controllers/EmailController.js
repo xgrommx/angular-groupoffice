@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('GO.controllers')
+angular.module('GO.email.controllers')
 
-				.controller('EmailController', ['$scope', '$state', '$stateParams', 'Store', function($scope, $state, $stateParams, Store) {
+				.controller('EmailController', ['$scope', '$state', '$stateParams', 'store', function($scope, $state, $stateParams, store) {
 
 						$scope.pageTitle = 'E-mail';
 
@@ -13,7 +13,7 @@ angular.module('GO.controllers')
 						$scope.mailbox = $stateParams.mailbox;
 						$scope.account_id= $stateParams.accountId;
 
-						$scope.store = new Store('email/message/store',
+						$scope.store = new store('email/message/store',
 										{
 											account_id: $scope.account_id,
 											mailbox: $scope.mailbox,

@@ -3,11 +3,11 @@
 /* Controllers */
 angular.module('GO.notes.controllers').
 
-				controller('CategoryController', ['Store', '$scope', '$http', 'utils', function(Store, $scope, $http, utils) {
+				controller('CategoryController', ['store', '$scope', '$http', 'utils', function(store, $scope, $http, utils) {
 
 						$scope.pageTitle = 'Notes - Enabled categories';
 
-						$scope.store = new Store('notes/category/store');
+						$scope.store = new store('notes/category/store');
 
 						$scope.saveCategory = function(category) {
 

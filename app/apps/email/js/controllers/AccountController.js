@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('GO.controllers')
+angular.module('GO.email.controllers')
 
-				.controller('AccountController', ['$scope', '$state', 'Store', function($scope, $state, Store) {
+				.controller('AccountController', ['$scope', '$state', 'store', function($scope, $state, store) {
 
 						$scope.pageTitle = 'E-mail';
 
-						$scope.store = new Store('email/account/store',
+						$scope.store = new store('email/account/store',
 										{
 											limit: 10
 										});

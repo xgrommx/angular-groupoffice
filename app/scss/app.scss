@@ -1,0 +1,472 @@
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+$sideBarWidth: 400px;
+
+body{
+}
+
+pre {
+	white-space: pre-wrap;  
+}
+
+
+.go-alerts{
+	margin:20px 0;
+}
+
+
+input.ng-invalid.ng-dirty {
+	border-color: #A94442;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+input.ng-valid.ng-dirty {
+	border-color: #3C763D;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+
+
+.go-loadmask{
+	position:fixed;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	z-index:100000;	
+	vertical-align:middle;
+	text-align:center;
+
+	.go-loadmask-msg{
+		position:fixed;
+		top:50%;
+		left:50%;
+		width:100px;
+		height:30px;
+
+		margin-left:-50px;
+		margin-top:-15px;
+
+		line-height:30px;
+
+		border: 1px solid #DDDDDD;
+
+		background:white;	
+		z-index:100001;
+		color:#333333;
+	}
+ 
+ .go-loadmask-screen{
+		position:absolute;
+		top:0;
+		bottom:0;
+		right:0;
+		left:0;
+		z-index:100000;
+		background-color:#f1f1f1;
+		opacity:0.5;
+		border-radius: 4px;
+	}
+}
+
+
+
+.go-rotate{
+	-webkit-animation:spin 2s linear infinite;
+	-moz-animation:spin 2s linear infinite;
+	animation:spin 2s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+
+.go-login-window{	
+
+	width:300px;
+	margin:auto;
+	padding:20px;
+	background-color:white;
+	position:relative;
+	
+	.body{
+		margin:20px 0;
+	}
+
+	header{
+		font-size: 2em;
+	}
+
+	footer{
+		text-align:right;
+	}
+}
+
+textarea.form-control{
+	height:200px;
+}
+
+
+
+
+#logo {
+	text-align: center;
+	margin-top:4px;
+	margin-right:6px;
+	float:left;
+	.orange{
+		font-size:3px;
+		height:7em;
+		width:7em;
+		border-radius: 1.5em;
+		background-color:white;
+		border:0.4em solid #f8971d;
+		line-height:0;
+		padding:0px;
+	}
+
+	.spacer{
+		margin:0.8em auto;
+		width:4.4em;
+	}
+	.green {
+		background-color: #78a22e;
+		float: left;
+		height: 1em;
+		border-radius: 0.4em;
+		margin: 0.6em 0.2em 0;
+		width: 1em;
+		padding:0;
+		/*opacity: 0.8;*/
+	}
+
+	.blue {
+		background-color: #009ac7;
+		float: left;
+		height: 2.4em;
+		border-radius: 0.4em;
+		margin: 0.2em;
+		width: 1em;
+		padding:0;
+		/*opacity: 0.8;*/
+	}
+}
+
+
+
+
+.go-header{
+	height:30px;
+	padding: 0px 0px 0px 14px;
+	background: #009CC5;
+	position: fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	
+	a{
+		font-size:16px;
+		line-height:30px;
+		color:white;
+	}
+	
+	h1{
+		margin:0px;
+		padding:0px;
+		color:white;
+		line-height:30px;
+		font-size:16px;
+		float: left;
+	}
+}
+
+.go-header-left{
+	float:left;
+}
+
+.go-header-right{
+	float:right;
+	padding-right:10px;
+}
+
+
+.go-start-screen{
+	margin-top:30px;
+	padding:20px;
+	ul{
+		list-style:none;
+	 li{
+			float:left;
+			font-size:16px;
+			color: #333;
+			text-align:center;
+			padding:40px;
+			
+			a{
+				color: #333;
+			}
+			
+			a:hover{
+				text-decoration: none;
+			}
+			
+			i{
+				font-size:48px;
+				display:block;
+			}
+		}
+	}
+}
+
+
+.go-list-wrap{
+	
+}
+
+.go-list-wrap-fixed{
+	position:fixed;
+	top:30px;
+	right:0px;
+	left:0px;
+	bottom:0px;
+}
+
+.go-list{
+	border:0px;
+	overflow:auto;	
+	position:absolute;
+	top:50px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+
+	margin-bottom:0px;
+}	
+
+.go-list-date{
+	float:right;
+	color:#777777;
+	font-style:italic;
+}
+
+.list-group-item:first-child {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.list-group-item:last-child {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.go-list-item-loading{
+	border:0px;
+}
+
+
+.go-content{
+	display:none;
+	padding:10px; 
+	margin-top: 80px;/* Top + detail toolbar toolbar on top */
+	h1{
+		margin-top:0px;
+		color:#333;
+		font-size:18px;
+	}
+}
+
+.go-content.active{
+	display:block;
+}
+
+.go-list-wrap.inactive{
+	display:none;
+}
+
+
+
+
+.go-toolbar{
+
+	div.go-toolbar-container	{
+	 list-style: none outside none;
+	 top:30px;
+	 left:0px;
+	 right:0px;
+	 padding:8px;
+	 height:50px;
+	 position:fixed;
+	 background-color: #F8F8F8;
+	 border-bottom: 1px solid #e7e7e7;
+	 border-right: 1px solid #e7e7e7;
+ }
+}
+
+
+.go-toolbar-title{
+	font-size:18px;
+	margin-left: 14px;
+   margin-top: 12px;
+}
+
+.go-list-toolbar{
+	position:absolute;
+	height:50px;
+	top:0px;
+	left:0px;
+	right:0px;
+	background-color: #F8F8F8;
+	border-bottom: 1px solid #e7e7e7;	
+	border-right: 1px solid #e7e7e7;	
+	z-index: 1030;	
+}
+
+
+
+.go-list-toolbar ul, .go-toolbar ul{
+	list-style: none outside none;
+  padding-left: 0;
+}
+
+.go-toolbar-left{
+	float:left;
+}
+
+.go-toolbar-right{
+	float:right;
+}
+
+.go-toolbar ul > li, .go-list-toolbar > ul > li{
+	float: left;
+/*	line-height: 20px;	*/
+	vertical-align:middle;
+}
+
+.go-toolbar ul > li{
+	padding-right: 6px;
+}
+
+.go-list-toolbar > ul > li > a{
+	color: #333333;
+	padding:15px 10px;
+	display:block;
+}
+
+.go-list-toolbar .input-group{
+	padding:8px 10px;
+	float:left;
+	width: 240px;
+}
+
+.go-list-toolbar{
+	float:right !important;
+}
+
+
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 40em) {
+	.go-content{
+		display:block;
+		padding-left:410px;
+	}
+
+	.go-list-wrap{
+		width:$sideBarWidth;
+		right:auto;
+	}
+	
+	.go-list-fullscreen{
+		right:0px;
+		width:auto;
+	}
+
+	.go-list-wrap.inactive{
+		display:block;
+	}
+
+	.go-toolbar div.go-toolbar-container	{
+		left:$sideBarWidth;
+	}
+	
+	
+	.go-list-fullscreen .go-toolbar div.go-toolbar-container	{
+		left:0px;
+	}
+
+}
+
+/*
+ * -- DESKTOP (AND UP) MEDIA QUERIES --
+ * On desktops and other large-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 60em) {
+
+
+
+
+
+}
+
+
+
+/* Original Bootstrap's CSS depends on empty href attributes to style cursors
+for several components (pagination, tabs etc.). But in AngularJS adding empty 
+href attributes to link tags will cause unwanted route changes. This is why we 
+need to remove empty href attributes from directive templates and as a result 
+styling is not applied correctly. The remedy is simple, just add the following 
+styling to your application:
+*/
+
+.go-toolbar a, .go-list-toolbar a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+
+/* modals */
+
+.go-modal-alert .glyphicon{
+	font-size: 32px;
+	vertical-align: middle;
+	margin-right:6px;
+}
+.go-modal-alert .modal-footer{
+	 margin-top: 0px
+}
+
+
+
+.go-side-nav{
+
+	position:fixed;
+	
+	top:30px;
+	bottom:0px;
+	left:-$sideBarWidth;
+	width:$sideBarWidth;
+	
+	background-color: #F8F8F8;
+	border-right: 1px solid #E7E7E7;
+	
+	z-index:2000;
+	
+	-webkit-transition: all .25s ease-out;
+      -moz-transition: all .25s ease-out;
+           transition: all .25s ease-out;
+	
+   
+}
+
+.go-side-nav.active{
+	left:0px;
+	
+}
+

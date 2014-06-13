@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Group-Office">
+            <file>file:/var/www/angular-groupoffice/README.md</file>
+            <file>file:/var/www/angular-groupoffice/.gitignore</file>
+            <file>file:/var/www/angular-groupoffice/app/scss/app.scss</file>
             <file>file:/var/www/angular-groupoffice/package.json</file>
+            <file>file:/var/www/angular-groupoffice/bower.json</file>
             <file>file:/var/www/angular-groupoffice/app/index.html</file>
+            <file>file:/var/www/angular-groupoffice/app/css/app.css</file>
             <file>file:/var/www/angular-groupoffice/Gruntfile.js</file>
         </group>
     </open-files>

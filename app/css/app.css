@@ -1,374 +1,323 @@
-/* app css stylesheet */
-
-body{
-
-}
-
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000310}}
 pre {
-	white-space: pre-wrap;  
-}
+  white-space: pre-wrap; }
 
-.go-alerts{
-	margin:20px 0;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000315}}
+.go-alerts {
+  margin: 20px 0; }
 
-
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000320}}
 input.ng-invalid.ng-dirty {
-	border-color: #A94442;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-}
+  border-color: #A94442;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000325}}
 input.ng-valid.ng-dirty {
-	border-color: #3C763D;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-}
+  border-color: #3C763D;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000332}}
+.go-loadmask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100000;
+  vertical-align: middle;
+  text-align: center; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000342}}
+  .go-loadmask .go-loadmask-msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 30px;
+    margin-left: -50px;
+    margin-top: -15px;
+    line-height: 30px;
+    border: 1px solid #DDDDDD;
+    background: white;
+    z-index: 100001;
+    color: #333333; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000361}}
+  .go-loadmask .go-loadmask-screen {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 100000;
+    background-color: #f1f1f1;
+    opacity: 0.5;
+    border-radius: 4px; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000376}}
+.go-rotate {
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite; }
 
-.go-loadmask{
-	position:absolute;
-	top:0;
-	bottom:0;
-	right:0;
-	left:0;
-	z-index:100000;	
-	vertical-align:middle;
-	text-align:center;
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); } }
 
-}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg); } }
 
-.go-loadmask .go-loadmask-msg{
-	position:fixed;
-	top:50%;
-	left:50%;
-	width:100px;
-	height:30px;
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 
-	margin-left:-50px;
-	margin-top:-15px;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000388}}
+.go-login-window {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000396}}
+  .go-login-window .body {
+    margin: 20px 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003100}}
+  .go-login-window header {
+    font-size: 2em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003104}}
+  .go-login-window footer {
+    text-align: right; }
 
-	line-height:30px;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003109}}
+textarea.form-control {
+  height: 200px; }
 
-	border: 1px solid #DDDDDD;
-
-	background:white;	
-	z-index:100001;
-	color:#333333;
-}
-
-.go-loadmask-screen{
-	position:absolute;
-	top:0;
-	bottom:0;
-	right:0;
-	left:0;
-	z-index:100000;
-	background-color:#f1f1f1;
-	opacity:0.5;
-	border-radius: 4px;
-}
-
-.go-rotate{
-	-webkit-animation:spin 2s linear infinite;
-	-moz-animation:spin 2s linear infinite;
-	animation:spin 2s linear infinite;
-}
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-
-
-.go-login-window{	
-
-	width:300px;
-	margin:auto;
-	padding:20px;
-	background-color:white;
-	position:relative;
-}
-
-.go-login-window .body{
-	margin:20px 0;
-}
-
-.go-login-window header{
-	font-size: 2em;
-}
-
-.go-login-window footer{
-	text-align:right;
-}
-
-
-textarea.form-control{
-	height:200px;
-}
-
-
-
-
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003116}}
 #logo {
-	text-align: center;
-	margin-top:4px;
-	margin-right:6px;
-	float:left;
-}
+  text-align: center;
+  margin-top: 4px;
+  margin-right: 6px;
+  float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003121}}
+  #logo .orange {
+    font-size: 3px;
+    height: 7em;
+    width: 7em;
+    border-radius: 1.5em;
+    background-color: white;
+    border: 0.4em solid #f8971d;
+    line-height: 0;
+    padding: 0px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003132}}
+  #logo .spacer {
+    margin: 0.8em auto;
+    width: 4.4em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003136}}
+  #logo .green {
+    background-color: #78a22e;
+    float: left;
+    height: 1em;
+    border-radius: 0.4em;
+    margin: 0.6em 0.2em 0;
+    width: 1em;
+    padding: 0;
+    /*opacity: 0.8;*/ }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003147}}
+  #logo .blue {
+    background-color: #009ac7;
+    float: left;
+    height: 2.4em;
+    border-radius: 0.4em;
+    margin: 0.2em;
+    width: 1em;
+    padding: 0;
+    /*opacity: 0.8;*/ }
 
-#logo .orange{
-	font-size:3px;
-	height:7em;
-	width:7em;
-	border-radius: 1.5em;
-	background-color:white;
-	border:0.4em solid #f8971d;
-	line-height:0;
-	padding:0px;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003162}}
+.go-header {
+  height: 30px;
+  padding: 0px 0px 0px 14px;
+  background: #009CC5;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003171}}
+  .go-header a {
+    font-size: 16px;
+    line-height: 30px;
+    color: white; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003177}}
+  .go-header h1 {
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    line-height: 30px;
+    font-size: 16px;
+    float: left; }
 
-#logo .spacer{
-	margin:0.8em auto;
-	width:4.4em;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003187}}
+.go-header-left {
+  float: left; }
 
-#logo .green {
-	background-color: #78a22e;
-	float: left;
-	height: 1em;
-	border-radius: 0.4em;
-	margin: 0.6em 0.2em 0;
-	width: 1em;
-	padding:0;
-	/*opacity: 0.8;*/
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003191}}
+.go-header-right {
+  float: right;
+  padding-right: 10px; }
 
-#logo	.blue {
-	background-color: #009ac7;
-	float: left;
-	height: 2.4em;
-	border-radius: 0.4em;
-	margin: 0.2em;
-	width: 1em;
-	padding:0;
-	/*opacity: 0.8;*/
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003197}}
+.go-start-screen {
+  margin-top: 30px;
+  padding: 20px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003200}}
+  .go-start-screen ul {
+    list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003202}}
+    .go-start-screen ul li {
+      float: left;
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+      padding: 40px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003209}}
+      .go-start-screen ul li a {
+        color: #333; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003213}}
+      .go-start-screen ul li a:hover {
+        text-decoration: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003217}}
+      .go-start-screen ul li i {
+        font-size: 48px;
+        display: block; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003230}}
+.go-list-wrap-fixed {
+  position: fixed;
+  top: 30px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003238}}
+.go-list {
+  border: 0px;
+  overflow: auto;
+  position: absolute;
+  top: 50px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003250}}
+.go-list-date {
+  float: right;
+  color: #777777;
+  font-style: italic; }
 
-.go-header{
-	height:30px;
-	padding: 0px 0px 0px 14px;
-	background: #009CC5;
-	position: fixed;
-	top:0px;
-	left:0px;
-	right:0px;
-}
-
-.go-header-left{
-	float:left;
-}
-
-.go-header-right{
-	float:right;
-	padding-right:10px;
-}
-
-.go-header a{
-	font-size:16px;
-	line-height:30px;
-	color:white;
-}
-
-.go-header h1{
-	margin:0px;
-	padding:0px;
-	color:white;
-	line-height:30px;
-	font-size:16px;
-	float: left;
-}
-
-
-.go-start-screen{
-	margin-top:30px;
-	padding:20px;
-}
-
-
-.go-start-screen ul{
-	list-style:none;
-}
-
-.go-start-screen ul li{
-	float:left;
-	font-size:16px;
-	color: #333;
-	text-align:center;
-	padding:40px;
-}
-
-.go-start-screen ul li a{
-	color: #333;
-}
-
-.go-start-screen ul li a:hover{
-	text-decoration: none;
-}
-
-.go-start-screen ul li a i{
-	font-size:48px;
-	display:block;
-}
-
-.go-list-wrap{
-	
-}
-
-.go-list-wrap-fixed{
-	position:fixed;
-	top:30px;
-	right:0px;
-	left:0px;
-	bottom:0px;
-}
-
-.go-list{
-	border:0px;
-	overflow:auto;	
-	position:absolute;
-	top:50px;
-	bottom:0px;
-	left:0px;
-	right:0px;
-
-	margin-bottom:0px;
-}	
-
-.go-list-date{
-	float:right;
-	color:#777777;
-	font-style:italic;
-}
-
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003256}}
 .list-group-item:first-child {
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-}
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003261}}
 .list-group-item:last-child {
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-}
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px; }
 
-.go-list-item-loading{
-	border:0px;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003266}}
+.go-list-item-loading {
+  border: 0px; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003271}}
+.go-content {
+  display: none;
+  padding: 10px;
+  margin-top: 80px;
+  /* Top + detail toolbar toolbar on top */ }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003275}}
+  .go-content h1 {
+    margin-top: 0px;
+    color: #333;
+    font-size: 18px; }
 
-.go-content{
-	display:none;
-	padding:10px; 
-	margin-top: 80px;/* Top + detail toolbar toolbar on top */
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003282}}
+.go-content.active {
+  display: block; }
 
-.go-content h1{
-	margin-top:0px;
-	color:#333;
-	font-size:18px;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003286}}
+.go-list-wrap.inactive {
+  display: none; }
 
-.go-content.active{
-	display:block;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003295}}
+.go-toolbar div.go-toolbar-container {
+  list-style: none outside none;
+  top: 30px;
+  left: 0px;
+  right: 0px;
+  padding: 8px;
+  height: 50px;
+  position: fixed;
+  background-color: #F8F8F8;
+  border-bottom: 1px solid #e7e7e7;
+  border-right: 1px solid #e7e7e7; }
 
-.go-list-wrap.inactive{
-	display:none;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003310}}
+.go-toolbar-title {
+  font-size: 18px;
+  margin-left: 14px;
+  margin-top: 12px; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003316}}
+.go-list-toolbar {
+  position: absolute;
+  height: 50px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: #F8F8F8;
+  border-bottom: 1px solid #e7e7e7;
+  border-right: 1px solid #e7e7e7;
+  z-index: 1030; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003330}}
+.go-list-toolbar ul, .go-toolbar ul {
+  list-style: none outside none;
+  padding-left: 0; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003335}}
+.go-toolbar-left {
+  float: left; }
 
-.go-toolbar{
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003339}}
+.go-toolbar-right {
+  float: right; }
 
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003343}}
+.go-toolbar ul > li, .go-list-toolbar > ul > li {
+  float: left;
+  /*	line-height: 20px;	*/
+  vertical-align: middle; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003349}}
+.go-toolbar ul > li {
+  padding-right: 6px; }
 
-.go-toolbar div.go-toolbar-container	{
-	list-style: none outside none;
-	top:30px;
-	left:0px;
-	right:0px;
-	padding:8px;
-	height:50px;
-	position:fixed;
-	background-color: #F8F8F8;
-	border-bottom: 1px solid #e7e7e7;
-	border-right: 1px solid #e7e7e7;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003353}}
+.go-list-toolbar > ul > li > a {
+  color: #333333;
+  padding: 15px 10px;
+  display: block; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003359}}
+.go-list-toolbar .input-group {
+  padding: 8px 10px;
+  float: left;
+  width: 240px; }
 
-.go-toolbar-title{
-	font-size:18px;
-	margin-left: 14px;
-   margin-top: 12px;
-}
-
-.go-list-toolbar{
-	position:absolute;
-	height:50px;
-	top:0px;
-	left:0px;
-	right:0px;
-	background-color: #F8F8F8;
-	border-bottom: 1px solid #e7e7e7;	
-	border-right: 1px solid #e7e7e7;	
-	z-index: 1030;	
-}
-
-
-
-.go-list-toolbar ul, .go-toolbar ul{
-	list-style: none outside none;
-  padding-left: 0;
-}
-
-.go-toolbar-left{
-	float:left;
-}
-
-.go-toolbar-right{
-	float:right;
-}
-
-.go-toolbar ul > li, .go-list-toolbar > ul > li{
-	float: left;
-/*	line-height: 20px;	*/
-	vertical-align:middle;
-}
-
-.go-toolbar ul > li{
-	padding-right: 6px;
-}
-
-.go-list-toolbar > ul > li > a{
-	color: #333333;
-	padding:15px 10px;
-	display:block;
-}
-
-.go-list-toolbar .input-group{
-	padding:8px 10px;
-	float:left;
-	width: 240px;
-}
-
-.go-list-toolbar{
-	float:right !important;
-}
-
-
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003365}}
+.go-list-toolbar {
+  float: right !important; }
 
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
@@ -376,51 +325,37 @@ textarea.form-control{
  * of the mobile styles.
  */
 @media (min-width: 40em) {
-	.go-content{
-		display:block;
-		padding-left:410px;
-	}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003377}}
+  .go-content {
+    display: block;
+    padding-left: 410px; }
 
-	.go-list-wrap{
-		width:400px;
-		right:auto;
-	}
-	
-	.go-list-fullscreen{
-		right:0px;
-		width:auto;
-	}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003382}}
+  .go-list-wrap {
+    width: 400px;
+    right: auto; }
 
-	.go-list-wrap.inactive{
-		display:block;
-	}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003387}}
+  .go-list-fullscreen {
+    right: 0px;
+    width: auto; }
 
-	.go-toolbar div.go-toolbar-container	{
-		left:400px;
-	}
-	
-	
-	.go-list-fullscreen .go-toolbar div.go-toolbar-container	{
-		left:0px;
-	}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003392}}
+  .go-list-wrap.inactive {
+    display: block; }
 
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003396}}
+  .go-toolbar div.go-toolbar-container {
+    left: 400px; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003401}}
+  .go-list-fullscreen .go-toolbar div.go-toolbar-container {
+    left: 0px; } }
 /*
  * -- DESKTOP (AND UP) MEDIA QUERIES --
  * On desktops and other large-sized devices, we want to customize some
  * of the mobile styles.
  */
-@media (min-width: 60em) {
-
-
-
-
-
-}
-
-
-
 /* Original Bootstrap's CSS depends on empty href attributes to style cursors
 for several components (pagination, tabs etc.). But in AngularJS adding empty 
 href attributes to link tags will cause unwanted route changes. This is why we 
@@ -428,47 +363,35 @@ need to remove empty href attributes from directive templates and as a result
 styling is not applied correctly. The remedy is simple, just add the following 
 styling to your application:
 */
-
-.go-toolbar a, .go-list-toolbar a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
-
-
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003430}}
+.go-toolbar a, .go-list-toolbar a, .nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer; }
 
 /* modals */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003436}}
+.go-modal-alert .glyphicon {
+  font-size: 32px;
+  vertical-align: middle;
+  margin-right: 6px; }
 
-.go-modal-alert .glyphicon{
-	font-size: 32px;
-	vertical-align: middle;
-	margin-right:6px;
-}
-.go-modal-alert .modal-footer{
-	 margin-top: 0px
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003441}}
+.go-modal-alert .modal-footer {
+  margin-top: 0px; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003447}}
+.go-side-nav {
+  position: fixed;
+  top: 30px;
+  bottom: 0px;
+  left: -400px;
+  width: 400px;
+  background-color: #F8F8F8;
+  border-right: 1px solid #E7E7E7;
+  z-index: 2000;
+  -webkit-transition: all .25s ease-out;
+  -moz-transition: all .25s ease-out;
+  transition: all .25s ease-out; }
 
-
-.go-side-nav{
-
-	position:fixed;
-	
-	top:30px;
-	bottom:0px;
-	left:-400px;
-	width:400px;
-	
-	background-color: #F8F8F8;
-	border-right: 1px solid #E7E7E7;
-	
-	z-index:2000;
-	
-	-webkit-transition: all .25s ease-out;
-      -moz-transition: all .25s ease-out;
-           transition: all .25s ease-out;
-	
-   
-}
-
-.go-side-nav.active{
-	left:0px;
-	
-}
-
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003468}}
+.go-side-nav.active {
+  left: 0px; }

@@ -1,10 +1,11 @@
 
-$font-stack:    Helvetica, sans-serif;
+$font-stack:    "Helvetica Neue",Helvetica,Arial,sans-serif;
 $primary-color: #333;
 
-$sideBarWidth: 400px;
+$list-panel-width: 400px;
 
 body{
+	font-family: $font-stack;
 }
 
 pre {
@@ -55,7 +56,7 @@ input.ng-valid.ng-dirty {
 
 		background:white;	
 		z-index:100001;
-		color:#333333;
+		color:$primary-color;
 	}
  
  .go-loadmask-screen{
@@ -202,12 +203,12 @@ textarea.form-control{
 	 li{
 			float:left;
 			font-size:16px;
-			color: #333;
+			color: $primary-color;
 			text-align:center;
 			padding:40px;
 			
 			a{
-				color: #333;
+				color: $primary-color;
 			}
 			
 			a:hover{
@@ -274,7 +275,7 @@ textarea.form-control{
 	margin-top: 80px;/* Top + detail toolbar toolbar on top */
 	h1{
 		margin-top:0px;
-		color:#333;
+		color:$primary-color;
 		font-size:18px;
 	}
 }
@@ -351,7 +352,7 @@ textarea.form-control{
 }
 
 .go-list-toolbar > ul > li > a{
-	color: #333333;
+	color: $primary-color;
 	padding:15px 10px;
 	display:block;
 }
@@ -376,11 +377,12 @@ textarea.form-control{
 @media (min-width: 40em) {
 	.go-content{
 		display:block;
-		padding-left:410px;
+		margin-left: $list-panel-width;
+		padding-left:10px;
 	}
 
 	.go-list-wrap{
-		width:$sideBarWidth;
+		width:$list-panel-width;
 		right:auto;
 	}
 	
@@ -394,7 +396,7 @@ textarea.form-control{
 	}
 
 	.go-toolbar div.go-toolbar-container	{
-		left:$sideBarWidth;
+		left:$list-panel-width;
 	}
 	
 	
@@ -450,8 +452,8 @@ styling to your application:
 	
 	top:30px;
 	bottom:0px;
-	left:-$sideBarWidth;
-	width:$sideBarWidth;
+	left:-$list-panel-width;
+	width:$list-panel-width;
 	
 	background-color: #F8F8F8;
 	border-right: 1px solid #E7E7E7;

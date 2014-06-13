@@ -1,22 +1,26 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\000037}}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000311}}
 pre {
   white-space: pre-wrap; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000316}}
 .go-alerts {
   margin: 20px 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000320}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000321}}
 input.ng-invalid.ng-dirty {
   border-color: #A94442;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000326}}
 input.ng-valid.ng-dirty {
   border-color: #3C763D;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000333}}
 .go-loadmask {
   position: fixed;
   top: 0;
@@ -26,7 +30,7 @@ input.ng-valid.ng-dirty {
   z-index: 100000;
   vertical-align: middle;
   text-align: center; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000343}}
   .go-loadmask .go-loadmask-msg {
     position: fixed;
     top: 50%;
@@ -40,7 +44,7 @@ input.ng-valid.ng-dirty {
     background: white;
     z-index: 100001;
     color: #333333; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000362}}
   .go-loadmask .go-loadmask-screen {
     position: absolute;
     top: 0;
@@ -52,7 +56,7 @@ input.ng-valid.ng-dirty {
     opacity: 0.5;
     border-radius: 4px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000377}}
 .go-rotate {
   -webkit-animation: spin 2s linear infinite;
   -moz-animation: spin 2s linear infinite;
@@ -71,34 +75,34 @@ input.ng-valid.ng-dirty {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000388}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000389}}
 .go-login-window {
   width: 300px;
   margin: auto;
   padding: 20px;
   background-color: white;
   position: relative; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\0000397}}
   .go-login-window .body {
     margin: 20px 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003101}}
   .go-login-window header {
     font-size: 2em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003104}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003105}}
   .go-login-window footer {
     text-align: right; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003109}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003110}}
 textarea.form-control {
   height: 200px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003116}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003117}}
 #logo {
   text-align: center;
   margin-top: 4px;
   margin-right: 6px;
   float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003121}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003122}}
   #logo .orange {
     font-size: 3px;
     height: 7em;
@@ -108,11 +112,11 @@ textarea.form-control {
     border: 0.4em solid #f8971d;
     line-height: 0;
     padding: 0px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003132}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003133}}
   #logo .spacer {
     margin: 0.8em auto;
     width: 4.4em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003137}}
   #logo .green {
     background-color: #78a22e;
     float: left;
@@ -122,7 +126,7 @@ textarea.form-control {
     width: 1em;
     padding: 0;
     /*opacity: 0.8;*/ }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003147}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003148}}
   #logo .blue {
     background-color: #009ac7;
     float: left;
@@ -133,7 +137,7 @@ textarea.form-control {
     padding: 0;
     /*opacity: 0.8;*/ }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003162}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003163}}
 .go-header {
   height: 30px;
   padding: 0px 0px 0px 14px;
@@ -142,12 +146,12 @@ textarea.form-control {
   top: 0px;
   left: 0px;
   right: 0px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003171}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003172}}
   .go-header a {
     font-size: 16px;
     line-height: 30px;
     color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003177}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003178}}
   .go-header h1 {
     margin: 0px;
     padding: 0px;
@@ -156,41 +160,41 @@ textarea.form-control {
     font-size: 16px;
     float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003187}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003188}}
 .go-header-left {
   float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003191}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003192}}
 .go-header-right {
   float: right;
   padding-right: 10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003197}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003198}}
 .go-start-screen {
   margin-top: 30px;
   padding: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003200}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003201}}
   .go-start-screen ul {
     list-style: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003202}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003203}}
     .go-start-screen ul li {
       float: left;
       font-size: 16px;
-      color: #333;
+      color: #333333;
       text-align: center;
       padding: 40px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003209}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003210}}
       .go-start-screen ul li a {
-        color: #333; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003213}}
+        color: #333333; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003214}}
       .go-start-screen ul li a:hover {
         text-decoration: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003217}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003218}}
       .go-start-screen ul li i {
         font-size: 48px;
         display: block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003230}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003231}}
 .go-list-wrap-fixed {
   position: fixed;
   top: 30px;
@@ -198,7 +202,7 @@ textarea.form-control {
   left: 0px;
   bottom: 0px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003238}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003239}}
 .go-list {
   border: 0px;
   overflow: auto;
@@ -209,47 +213,47 @@ textarea.form-control {
   right: 0px;
   margin-bottom: 0px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003250}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003251}}
 .go-list-date {
   float: right;
   color: #777777;
   font-style: italic; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003256}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003257}}
 .list-group-item:first-child {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003261}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003262}}
 .list-group-item:last-child {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003266}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003267}}
 .go-list-item-loading {
   border: 0px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003271}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003272}}
 .go-content {
   display: none;
   padding: 10px;
   margin-top: 80px;
   /* Top + detail toolbar toolbar on top */ }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003275}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003276}}
   .go-content h1 {
     margin-top: 0px;
-    color: #333;
+    color: #333333;
     font-size: 18px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003282}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003283}}
 .go-content.active {
   display: block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003286}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003287}}
 .go-list-wrap.inactive {
   display: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003295}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003296}}
 .go-toolbar div.go-toolbar-container {
   list-style: none outside none;
   top: 30px;
@@ -262,13 +266,13 @@ textarea.form-control {
   border-bottom: 1px solid #e7e7e7;
   border-right: 1px solid #e7e7e7; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003311}}
 .go-toolbar-title {
   font-size: 18px;
   margin-left: 14px;
   margin-top: 12px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003317}}
 .go-list-toolbar {
   position: absolute;
   height: 50px;
@@ -280,42 +284,42 @@ textarea.form-control {
   border-right: 1px solid #e7e7e7;
   z-index: 1030; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003331}}
 .go-list-toolbar ul, .go-toolbar ul {
   list-style: none outside none;
   padding-left: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003336}}
 .go-toolbar-left {
   float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003340}}
 .go-toolbar-right {
   float: right; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003344}}
 .go-toolbar ul > li, .go-list-toolbar > ul > li {
   float: left;
   /*	line-height: 20px;	*/
   vertical-align: middle; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003350}}
 .go-toolbar ul > li {
   padding-right: 6px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003354}}
 .go-list-toolbar > ul > li > a {
   color: #333333;
   padding: 15px 10px;
   display: block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003360}}
 .go-list-toolbar .input-group {
   padding: 8px 10px;
   float: left;
   width: 240px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003366}}
 .go-list-toolbar {
   float: right !important; }
 
@@ -325,30 +329,31 @@ textarea.form-control {
  * of the mobile styles.
  */
 @media (min-width: 40em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003378}}
   .go-content {
     display: block;
-    padding-left: 410px; }
+    margin-left: 400px;
+    padding-left: 10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003384}}
   .go-list-wrap {
     width: 400px;
     right: auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003389}}
   .go-list-fullscreen {
     right: 0px;
     width: auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003394}}
   .go-list-wrap.inactive {
     display: block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003398}}
   .go-toolbar div.go-toolbar-container {
     left: 400px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003401}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003403}}
   .go-list-fullscreen .go-toolbar div.go-toolbar-container {
     left: 0px; } }
 /*
@@ -363,22 +368,22 @@ need to remove empty href attributes from directive templates and as a result
 styling is not applied correctly. The remedy is simple, just add the following 
 styling to your application:
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003430}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003432}}
 .go-toolbar a, .go-list-toolbar a, .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
 
 /* modals */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003436}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003438}}
 .go-modal-alert .glyphicon {
   font-size: 32px;
   vertical-align: middle;
   margin-right: 6px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003441}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003443}}
 .go-modal-alert .modal-footer {
   margin-top: 0px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003447}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003449}}
 .go-side-nav {
   position: fixed;
   top: 30px;
@@ -392,6 +397,6 @@ styling to your application:
   -moz-transition: all .25s ease-out;
   transition: all .25s ease-out; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003468}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/angular-groupoffice\/app\/scss\/app\.scss}line{font-family:\00003470}}
 .go-side-nav.active {
   left: 0px; }

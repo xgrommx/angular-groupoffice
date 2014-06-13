@@ -13,7 +13,10 @@ Get all the required NPM modules my navigating to the project directory and run:
 
 $ npm install
 
-I used grunt top maintain the scripts in index.html
+I used [grunt](http://gruntjs.com/) to maintain the scripts in index.html. It 
+automatically puts all javascript and css files in the index.html file. 
+Additionally it can build a distribution with minified scripts.
+
 Run:
 
 $ grunt watch

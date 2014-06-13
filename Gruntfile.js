@@ -33,6 +33,39 @@ module.exports = function (grunt) {
         usemin: {
             html: ['dist/index.html']
         },
+				
+				// ngmin tries to make the code safe for minification automatically by
+				// using the Angular long form for dependency injection. It doesn't work on
+				// things like resolve or inject so those have to be done manually.
+				ngmin: {
+					dist: {
+						files: [{
+							expand: true,
+							cwd: '.tmp/concat/scripts',
+							src: '*.js',
+							dest: '.tmp/concat/scripts'
+						}]
+					}
+				},
+				
+				htmlmin: {
+					dist: {
+						options: {
+							collapseWhitespace: true,
+							conservativeCollapse: true,
+							collapseBooleanAttributes: true,
+							removeCommentsFromCDATA: true,
+							removeOptionalTags: true
+						},
+						files: [{
+							expand: true,
+							cwd: 'dist',
+							src: ['**/*.html'],
+							dest: 'dist'
+						}]
+					}
+				},
+
  
         uglify: {
             options: {
@@ -73,10 +106,22 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-usemin');
 		grunt.loadNpmTasks('grunt-contrib-watch');
 		
+		grunt.loadNpmTasks('grunt-contrib-htmlmin');
+		
+		grunt.loadNpmTasks('grunt-ngmin');
+		
 		grunt.loadNpmTasks('grunt-file-blocks');
  
     // Tell Grunt what to do when we type "grunt" into the terminal
     grunt.registerTask('default', [
-        'copy', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'rev', 'usemin'
+        'copy', 
+				'useminPrepare', 
+				'concat', 
+				'ngmin',
+				'uglify', 
+				'cssmin', 
+				'rev', 
+				'usemin',
+				'htmlmin'
     ]);
 };

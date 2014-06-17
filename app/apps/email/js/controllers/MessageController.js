@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('GO.email.controllers')
-				.controller('MessageController', ['$scope', '$state', '$stateParams', function($scope, $state, $stateParams) {
+				.controller('MessageController', ['$scope', '$state', '$stateParams', '$timeout', function($scope, $state, $stateParams, $timeout) {
 						
 						
 						//Message is defined in the parent scope EmailController.
@@ -13,7 +13,7 @@ angular.module('GO.email.controllers')
 							$state.go('messages');
 						};						
 
-						$scope.toggleFlag = function(flag){
+						$scope.toggleMessageFlag = function(flag){
 							
 							//set the seen flag (mark as read). When done then update the store of the list
 							$scope.message.toggleFlag(flag).then(function(data){								
@@ -22,7 +22,19 @@ angular.module('GO.email.controllers')
 							});
 						};
 						
-						$scope.message.load($stateParams.uid);					
+						$scope.message.load($stateParams.uid).then(function(data){
+
+							//Mark message as read after 3s.
+							if($scope.message.attributes.seen==false){
+								$timeout(function(){
+									$scope.message.toggleFlag("seen", false).then(function(data){								
+										var storeMessage = $scope.store.findSingleByAttribute("uid", $scope.message.attributes.uid);
+										storeMessage["seen"] = true;
+									});
+								}, 3000);
+							}
+							
+						});				
 
 					}]);
 				

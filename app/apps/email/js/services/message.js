@@ -8,9 +8,15 @@ angular.module('GO.email.services')
 					
 					message.prototype = Object.create(model.prototype); // inherit
 					
-					message.prototype.toggleFlag = function(flag) {
+					message.prototype.toggleFlag = function(flag, clear) {
 				
 						var params = this.getBaseParams();
+						
+						if(typeof(clear)==="undefined"){
+							clear=this.attributes[flag];
+						}else if (clear == !this.attributes[flag]){
+							return false;
+						}
 						
 						params.flag=flag;
 						params.clear = this.attributes[flag];

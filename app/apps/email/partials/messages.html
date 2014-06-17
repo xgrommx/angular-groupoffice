@@ -41,7 +41,7 @@
 		
 	
 	<div  class="go-list list-group em-list" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
-		<a ng-class="{seen:email.seen}" ui-sref="messages.message({uid: email.uid, mailbox: mailbox, accountId: account_id})" class="list-group-item" ng-repeat="email in store.items">
+		<a ng-class="{seen:email.seen}" ui-sref-active="active" ui-sref="messages.message({uid: email.uid, mailbox: mailbox, accountId: account_id})" class="list-group-item" ng-repeat="email in store.items">
 			
 	
 				<div class="unseen-icon" ng-if="!email.seen"></div>

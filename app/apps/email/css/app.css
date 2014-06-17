@@ -17,6 +17,9 @@
   top: 50%;
   margin-top: -5px; }
 
+.active .unseen-icon {
+  background-color: white; }
+
 .em-headers .em-header {
   border-bottom: 1px solid #E7E7E7;
   padding: 8px 0; }

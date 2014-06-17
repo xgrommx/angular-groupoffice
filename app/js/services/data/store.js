@@ -113,6 +113,7 @@ angular.module('GO.services')
 						
 						
 						store.prototype.remove = function(index){
+							this.total--;
 							return this.items.splice(index, 1);
 						};
 						

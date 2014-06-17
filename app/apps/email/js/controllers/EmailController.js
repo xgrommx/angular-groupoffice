@@ -2,7 +2,7 @@
 
 angular.module('GO.email.controllers')
 
-				.controller('EmailController', ['$scope', '$state', '$stateParams', 'store', function($scope, $state, $stateParams, store) {
+				.controller('EmailController', ['$scope', '$state', '$stateParams', 'store','message', function($scope, $state, $stateParams, store, message) {
 
 						$scope.pageTitle = 'E-mail';
 
@@ -21,6 +21,12 @@ angular.module('GO.email.controllers')
 											sort:'date',
 											dir:'DESC'
 										});
+										
+						//Will be used in child scope. We define it here so we can access 
+						//the properties if needed in the future.
+						//Child scopes automatically inherit properties of the parents but
+						//not the other way around.
+						$scope.message = new message();
 					}]);
 				
 

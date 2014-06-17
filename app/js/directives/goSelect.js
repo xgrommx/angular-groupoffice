@@ -4,7 +4,7 @@
 angular.module('GO.directives')
 				
 				.directive('goSelect', ['$timeout','store','model', function($timeout, store, model) {
-						var options = {};
+						var options = {store:store, model:model};
 						
 						return {
 							require: 'ngModel',
@@ -83,8 +83,8 @@ angular.module('GO.directives')
 
 										var storeUri = attrs.goModule + '/' + attrs.goModel + '/store';
 
-										var store = new store(storeUri);
-										var model = new model(attrs.goModel, attrs.goModule + '/' + attrs.goModel);
+										var store = new opts.store(storeUri);
+										var model = new opts.model(attrs.goModel, attrs.goModule + '/' + attrs.goModel);
 
 										opts.query = function(query) {
 

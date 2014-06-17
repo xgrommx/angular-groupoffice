@@ -254,6 +254,12 @@ textarea.form-control{
 	font-style:italic;
 }
 
+.active{
+	.go-list-date{
+		color:white;
+	}
+}
+
 .list-group-item:first-child {
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
@@ -349,13 +355,13 @@ textarea.form-control{
 	float:right;
 }
 
-.go-toolbar > ul > li, .go-list-toolbar > ul > li{
+.go-toolbar .go-toolbar-container > ul > li, .go-list-toolbar > ul > li{
 	float: left;
 /*	line-height: 20px;	*/
 	vertical-align:middle;
 }
 
-.go-toolbar > ul > li{
+.go-toolbar .go-toolbar-container > ul > li{
 	padding-right: 6px;
 }
 

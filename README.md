@@ -21,7 +21,8 @@ Run:
 
 $ grunt watch
 
-to keep it up to date.
+to keep the CSS up to date with SASS and to update the index.html with newly
+added scripts.
 
 Run grunt with no command to create a distribution release:
 

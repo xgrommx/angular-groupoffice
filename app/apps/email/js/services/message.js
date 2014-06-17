@@ -1,7 +1,14 @@
 angular.module('GO.email.services')
 				.factory('message',["$sce","$http", "utils", "model", function($sce, $http, utils, model) {
-
-					model.prototype.toggleFlag = function(flag) {
+						
+						
+					function message() {
+						 model.call(this);
+					}
+					
+					message.prototype = Object.create(model.prototype); // inherit
+					
+					message.prototype.toggleFlag = function(flag) {
 				
 						var params = this.getBaseParams();
 						
@@ -19,7 +26,7 @@ angular.module('GO.email.services')
 					
 				
 					
-					model.prototype.init = function(){
+					message.prototype.init = function(){
 						
 						this.modelName = 'message';
 						this.routePrefix = 'email/message';
@@ -32,5 +39,5 @@ angular.module('GO.email.services')
 						};
 					};					
 
-					return model;
+					return message;
 				}]);
